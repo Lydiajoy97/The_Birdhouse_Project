@@ -42,6 +42,7 @@ ALLOWED_HOSTS = ['8000-lydiajoy97-thebirdhouse-13drw1okfrc.ws-eu114.gitpod.io']
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
