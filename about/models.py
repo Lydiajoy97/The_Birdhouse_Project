@@ -8,6 +8,10 @@ class Category(models.Model):
 # Create your models here.
 class Birdpost(models.Model):
     title = models.CharField(max_length=255)
+    image = models.ImageField(
+        upload_to='images/', default='../default_profile_qdjgyp'
+    )
+    location = models.TextField(blank=True)
     content = models.TextField(blank=True)
     updated_at = models.DateTimeField(auto_now=True)
-    categories = models.ManyToManyField("Category", related_name="posts")
+    categories = models.ManyToManyField("Category", related_name="birdpost")
