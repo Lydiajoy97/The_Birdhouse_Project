@@ -4,6 +4,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Profile
 from .serializers import ProfileSerializer
+from the_birdhouse.permissions import IsPersonOrReadOnly
+
 
 # From code insitutes Django rest framework walkthrough
 class ProfileList(APIView):
@@ -14,6 +16,8 @@ class ProfileList(APIView):
 
 class ProfileDetail(APIView):
     serializer_class = ProfileSerializer
+    permission_classes = [IsPersonOrReadOnly]
+
     def get_object(self, pk):
         try:
             profile = Profile.objects.get(pk=pk)
@@ -23,6 +27,7 @@ class ProfileDetail(APIView):
     
     def get(self, request, pk):
         profile = self.get_object(pk)
+        self.check_object_permissions(self.request, profile)
         serializer = ProfileSerializer(profile)
         return Response(serializer.data)
 
