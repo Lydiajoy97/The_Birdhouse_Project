@@ -3,9 +3,6 @@ from about.models import Birdpost
 
 
 class BirdpostSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source='owner.username')
-    is_owner = serializers.SerializerMethodField()
-
     class Meta:
         model = Birdpost
-        fields = ['id', 'owner', 'is_owner',]
+        fields = ['title', 'image', 'location', 'content', 'updated_at', 'uploaded_by', 'categories',]
