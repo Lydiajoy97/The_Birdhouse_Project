@@ -60,7 +60,7 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEV' in os.environ
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-lydiajoy97-thebirdhouse-13drw1okfrc.ws-eu114.gitpod.io', '<the-birdhouse-project>.herokuapp.com']
 
