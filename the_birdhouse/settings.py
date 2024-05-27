@@ -32,12 +32,11 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication' 
         if 'DEV' in os.environ 
              else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
-    )]
+    )],
     'DEFAULT_PAGINATION_CLASS':
         'rest_framework.pagination.PageNumberPagnation',
         'PAGE_SIZE': 10,
-
-    'DATETIME_FORMAT': '%d %b %Y'
+        'DATETIME_FORMAT': '%d %b %Y'
     }
     if 'DEV' not in os.environ:
 
@@ -53,7 +52,6 @@ JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'drf_api.serializers.CurrentUserSerializer'
 }
-
 
 
 # Quick-start development settings - unsuitable for production
