@@ -6,9 +6,9 @@ class BirdpostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Birdpost
         fields = ['title', 'image', 'location', 'content', 'updated_at', 'uploaded_by', 'categories',]
-        updated_at = serializers.SerializersMethodField()
+        updated_at = serializers.SerializerMethodField()
         
     def get_updated_at(self, obj):
         return naturaltime(obj.updated_at)
-        
+
 

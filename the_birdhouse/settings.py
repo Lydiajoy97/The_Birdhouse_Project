@@ -10,9 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 # cloudinary storage paths and database deployments built using code insitute walkthrough 
-import dj_database_url
 from pathlib import Path
 import os 
+import dj_database_url
 
 if os.path.exists('env.py'): 
     import env 
@@ -34,13 +34,13 @@ REST_FRAMEWORK = {
              else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
     )],
     'DEFAULT_PAGINATION_CLASS':
-        'rest_framework.pagination.PageNumberPagnation',
+        'rest_framework.pagination.PageNumberPagination',
         'PAGE_SIZE': 10,
         'DATETIME_FORMAT': '%d %b %Y'
 }
 if 'DEV' not in os.environ:
     REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES']= [
-            'restframework.renderers.JSONRenderer',
+            'rest_framework.renderers.JSONRenderer',
         ]
 
 REST_USE_JWT = True
@@ -130,17 +130,17 @@ WSGI_APPLICATION = 'the_birdhouse.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': ({
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    } if 'DEV' is os.environ
-    else dj_database_url.parse(
-        os.environ.get('DATABASE_URL'))
-    )
+if 'DEV' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        } 
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
