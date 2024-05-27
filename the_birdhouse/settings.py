@@ -37,12 +37,11 @@ REST_FRAMEWORK = {
         'rest_framework.pagination.PageNumberPagnation',
         'PAGE_SIZE': 10,
         'DATETIME_FORMAT': '%d %b %Y'
-    }
-    if 'DEV' not in os.environ:
-
-        REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'= [
-            'restframework.renderers.JSONRenderer'
-        ]]
+}
+if 'DEV' not in os.environ:
+    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES']= [
+            'restframework.renderers.JSONRenderer',
+        ]
 
 REST_USE_JWT = True
 JWT_AUTH_COOKIE = 'my-app-auth'
