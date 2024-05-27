@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-# cloudinary storage paths built using code insitute walkthrough 
+# cloudinary storage paths and database deployments built using code insitute walkthrough 
+import dj_database_url
 from pathlib import Path
 import os 
 
@@ -35,7 +36,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS':
         'rest_framework.pagination.PageNumberPagnation',
         'PAGE_SIZE': 10,
-        
+
     'DATETIME_FORMAT': '%d %b %Y'
     }
     if 'DEV' not in os.environ:
@@ -59,12 +60,12 @@ REST_AUTH_SERIALIZERS = {
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%1yn8k8!!av#$=lp$s$5(ou3i&ob$ye^p2bpn8z(yl$6j3#9)7'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['8000-lydiajoy97-thebirdhouse-13drw1okfrc.ws-eu114.gitpod.io']
+ALLOWED_HOSTS = ['8000-lydiajoy97-thebirdhouse-13drw1okfrc.ws-eu114.gitpod.io', '<the-birdhouse-project>.herokuapp.com']
 
 
 # Application definition
@@ -80,12 +81,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
+    'dj_rest_auth.registration',
+    'corsheaders',
 
     'about',
     'profiles',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -94,6 +98,17 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+ if 'CLIENT_ORIGIN' in os.environ:
+     CORS_ALLOWED_ORIGINS = [
+         os.environ.get('CLIENT_ORIGIN')
+     ]
+ else:
+     CORS_ALLOWED_ORIGIN_REGEXES = [
+         r"^https://.*\.gitpod\.io$",
+     ]
+
+ CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'the_birdhouse.urls'
 
@@ -120,10 +135,13 @@ WSGI_APPLICATION = 'the_birdhouse.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default': ({
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    } if 'DEV' is os.environ
+    else dj_database_url.parse(
+        os.environ.get('DATABASE_URL'))
+    )
 }
 
 
