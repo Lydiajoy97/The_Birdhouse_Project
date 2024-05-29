@@ -6,3 +6,23 @@
   background-color: rgb(203, 232, 238);
   min-height: 100vh;
 }
+
+a {
+    color: rgb(90, 30, 81);
+    transition: width 2s;
+}
+
+a:hover {
+    color:rgb(162, 82, 165);
+    transition: color ease-in-out 0.2s;
+}
+
+i {
+    color: rgb(90, 30, 81);
+    transition: width 2s;
+}
+
+i:hover {
+    color:rgb(162, 82, 165);
+    transition: color ease-in-out 0.2s;
+}
