@@ -1,0 +1,8 @@
+.App {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: italic;
+  background-color: rgb(203, 232, 238);
+  min-height: 100vh;
+}
