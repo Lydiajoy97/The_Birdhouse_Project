@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container } from "react-bootstrap";
 import styles from '../styles/NavBar.module.css';
 import { NavLink } from 'react-router-dom';
 
@@ -9,12 +9,11 @@ const NavBar = () => {
   return (
     <Navbar className={styles.NavBar}>
       <Container>
-        <NavLink to="/">
         <Navbar.Brand> 
           The Birdhouse 
-        </Navbar.Brand></NavLink>
+        </Navbar.Brand>
         <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end"><Nav>
+        <Navbar.Collapse className="justify-content-end">
           <NavLink 
             exact 
             className={styles.NavLink}
@@ -39,11 +38,11 @@ const NavBar = () => {
             activeClassName={styles.Active}
             to= "/signup"> Create Account 
             <i className="fa-regular fa-id-card"></i>
-          </NavLink></Nav>
+          </NavLink>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  )
-}
+  );
+};
 
 export default NavBar
