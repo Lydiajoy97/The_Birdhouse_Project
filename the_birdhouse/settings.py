@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 # cloudinary storage paths and database deployments built using code insitute walkthrough 
-import re
 from pathlib import Path
 import os 
 import dj_database_url
@@ -61,7 +60,7 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEBUG' in os.environ
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
@@ -101,11 +100,10 @@ MIDDLEWARE = [
 ]
 
 #from code institute deployment walkthrough to allow API to talk yo development enviroment
-if 'CLIENT_ORIGIN_DEV' in os.environ:
-    extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
-    ]
+CORS_ALLOWED_ORIGINS = [
+    os.envio.get('CLIENT_ORIGIN')
+
+]
 
 CORS_ALLOW_CREDENTIALS = True
 
