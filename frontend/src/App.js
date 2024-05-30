@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import { Switch, Route } from "react-router-dom";
 import SignUpForm from "./pages/auth/SignUpForm";
 
+/* Built using Code insitute walkthrough*/
 function App() {
   return (
     <div className={styles.App}>

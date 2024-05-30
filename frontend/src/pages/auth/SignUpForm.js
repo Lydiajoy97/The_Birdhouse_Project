@@ -11,19 +11,25 @@ const SignUpForm = () => {
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
-          <h1 className={styles.Header}>sign up</h1>
-
+          <h1 className={styles.Header}>Create an account to show off your bird spots! </h1>
                     <Form>
                       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" placeholder="name@example.com" />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                        <Form.Label>Example textarea</Form.Label>
-                        <Form.Control as="textarea" rows={3} />
+                        <Form.Label>Display Name</Form.Label>
+                        <Form.Control as="textarea" rows={1} />
+                      </Form.Group>
+                      <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+                        <Form.Label column sm="2">
+                        Password
+                        </Form.Label>
+                        <Col sm="10">
+                        <Form.Control type="password" placeholder="Password" />
+                        </Col>
                       </Form.Group>
                     </Form>
-
         </Container>
         <Container className={`mt-3 ${appStyles.Content}`}>
           <Link className={styles.Link} to="/signin">
