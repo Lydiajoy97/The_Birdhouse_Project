@@ -64,9 +64,12 @@ DEBUG = 'DEBUG' in os.environ
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
-    '8000-lydiajoy97-thebirdhouse-13drw1okfrc.ws-eu114.gitpod.io',
+    'localhost',
     ]
 
+CORS_ALLOWED_ORIGINS = [
+    os.environ.get('CLIENT_ORIGIN')
+]
 
 # Application definition
 
@@ -100,11 +103,6 @@ MIDDLEWARE = [
 ]
 
 #from code institute deployment walkthrough to allow API to talk yo development enviroment
-CORS_ALLOWED_ORIGINS = [
-    os.envio.get('CLIENT_ORIGIN')
-
-]
-
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'the_birdhouse.urls'
