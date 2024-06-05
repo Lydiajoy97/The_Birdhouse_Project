@@ -2,6 +2,7 @@
 
 * [**Project Brief**](#Project-Brief)
 The Birdhouse is a platform were users can upload pictures of birds they have spotted. They can post where they have found them which helps other users to spot birds. 
+This is to create a place 
 
 # **TABLE OF Contents**
 
@@ -36,13 +37,23 @@ The Birdhouse is a platform were users can upload pictures of birds they have sp
 - Delete own posts and profiles
 
 # Structure-Plan:
+- API structure 
 
+- Frontend Flowchart 
 ![flowchart]()
 
 # Design-and-Color-Scheme
-![image]()
+
+# Frontend Wireframes
+![image]('frontend/src/images/documentation1')
+![image]('frontend/src/images/documentation2')
+![image]('frontend/src/images/documentation3')
+![image]('frontend/src/images/documentation4')
 
 # Future developments 
+- One future development is to have a meet up page where users can arrange a spot to meet up and book a place. There will be an interactive map feature and bookings form. This is the build on the community they have found through the bird spotting page. 
+
+- Another future development is for the user to vote for their favorite bird picture. They can click on the picture and award it one point. Users will be able to see how many votes each bird has. The winner will have their bird picture displayed on the main page.
 
 # Testing-and-Results 
 Strategy:
