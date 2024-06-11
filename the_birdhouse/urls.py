@@ -19,9 +19,9 @@ from about import views
 from .views import root_route
 
 urlpatterns = [
+    path('', root_route),
     path('admin/', admin.site.urls),
     path('the_birdhouse-auth/', include('rest_framework.urls')),
     path('', include('about.urls')),
     path('', include('profiles.urls')),
-    path('', root_route)
 ]
