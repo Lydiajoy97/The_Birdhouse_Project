@@ -61,12 +61,12 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = 'DEV' in os.environ
-DEBUG = 'DEBUG' in os.environ
+DEBUG = True
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
         'localhost',
-        '8000-lydiajoy97-thebirdhouse-m2a56p22l92.ws-eu114.gitpod.io',
+        '8000-lydiajoy97-thebirdhouse-fqnzv277dr8.ws.codeinstitute-ide.net',
         'https://the-birdhouse-project-b719ced46037.herokuapp.com',
     ]
 
@@ -112,7 +112,8 @@ if 'CLIENT_ORIGIN' in os.environ:
     ]
 else:
     CORS_ALLOWED_ORIGIN_REGEXES = [
-        r"^https://.*\.gitpod\.io$",
+        # r"^https://.*\.gitpod\.io$",
+        r"^https://.*\.codeinstitute-ide\.net$",
     ]
 CORS_ALLOW_CREDENTIALS = True
 

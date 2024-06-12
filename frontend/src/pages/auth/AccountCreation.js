@@ -6,7 +6,6 @@ import appStyles from "../../App.module.css";
 import { Form, Col, Row, Container, Button, Alert, Image } from "react-bootstrap";
 import axios from "axios";
 
-
 /* From bootstrap and code insitute walkthrough */
 
 const AccountCreation = () => {

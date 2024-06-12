@@ -18,7 +18,7 @@ const NavBar = () => {
             exact 
             className={styles.NavLink}
             activeClassName={styles.Active}
-            to= "/">
+            to= "/"> Fly Home 
             <i className="fas fa-home"></i>
           </NavLink>
           <NavLink 
@@ -30,7 +30,7 @@ const NavBar = () => {
           <NavLink 
             className={styles.NavLink}
             activeClassName={styles.Active} 
-            to= "/signin"> Account 
+            to= "/signin"> Sign into Account 
             <i className="fa-solid fa-dove"></i>
           </NavLink>
           <NavLink 
