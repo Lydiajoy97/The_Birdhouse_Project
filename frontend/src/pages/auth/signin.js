@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios"
 
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
@@ -15,6 +16,8 @@ function SignInForm() {
     password1: "",
   });
   const { username, password1 } = signInData;
+
+  const [ errors ] = useState({});
 
   const history = useHistory();
   const handleSubmit = async (event) => {
@@ -42,6 +45,10 @@ function SignInForm() {
                         onChange={handleChange} 
                     /> 
                 </Form.Group>
+                {errors.username?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>))}
                         <Form.Group as={Row} className="mb-3" controlId="password1" name="password1">
                           <Form.Label column sm="2"> Password </Form.Label>
                           <Col sm="10">
@@ -54,8 +61,15 @@ function SignInForm() {
                             />
                           </Col>
                         </Form.Group>
+                        {errors.password1?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>))}
                         <Button type="submit"> Sign In! </Button>
-
+                        {errors.non_field_errors?.map((message, idx) => (
+              <Alert key={idx} variant="warning" className="mt-3">
+                {message}
+              </Alert>))}
                     </Form>
     );
 }
