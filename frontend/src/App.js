@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import Container from "react-bootstrap/Container";
 import { Switch, Route } from "react-router-dom";
 import AccountCreation from "./pages/auth/AccountCreation";
+import SignInForm from "./pages/auth/signin";
 
 /* Built using Code insitute walkthrough*/
 function App() {
@@ -14,7 +15,7 @@ function App() {
           <Route exact path="/" render={() => <h1>Home page</h1>} />
           <Route exact path="/bird-post" render={() => <h1>Bird Posts</h1>} />
           <Route exact path="/signup"  render={() => <AccountCreation/>} />
-          <Route exact path="/signin" render={() => <h1>Sign in</h1>} />
+          <Route exact path="/signin" render={() => <SignInForm/>} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
