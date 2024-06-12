@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios"
 
 import Form from "react-bootstrap/Form";
@@ -8,9 +8,13 @@ import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
 
+import { SetCurrentUserContext } from "../../App"
+
 /* From Code Insitute walkthrough */
 
 function SignInForm() {
+  const setCurrentUser = useContext(SetCurrentUserContext)
+
   const [signInData, setSignInData] = useState({
     username: "",
     password1: "",
@@ -24,7 +28,8 @@ function SignInForm() {
     event.preventDefault();
     try {
       await axios.post("/dj-rest-auth/login/", signInData);
-      history.push("/bird-spot");
+      setCurrentUser(data.user)
+      history.push("/");
     } catch (err) {
     }
   };
@@ -45,10 +50,10 @@ function SignInForm() {
                         onChange={handleChange} 
                     /> 
                 </Form.Group>
-                {errors.username?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
-                {message}
-              </Alert>))}
+                  {errors.username?.map((message, idx) => (
+                    <Alert key={idx} variant="warning">
+                      {message}
+                    </Alert>))}
                         <Form.Group as={Row} className="mb-3" controlId="password1" name="password1">
                           <Form.Label column sm="2"> Password </Form.Label>
                           <Col sm="10">
@@ -62,15 +67,15 @@ function SignInForm() {
                           </Col>
                         </Form.Group>
                         {errors.password1?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
-                {message}
-              </Alert>))}
-                        <Button type="submit"> Sign In! </Button>
+                          <Alert key={idx} variant="warning">
+                           {message}
+                          </Alert>))}
+                        <Button type="submit" onchange={handleSubmit}> Sign In! </Button>
                         {errors.non_field_errors?.map((message, idx) => (
-              <Alert key={idx} variant="warning" className="mt-3">
-                {message}
-              </Alert>))}
-                    </Form>
+                        <Alert key={idx} variant="warning" className="mt-3">
+                          {message}
+                        </Alert>))}
+            </Form>
     );
 }
 
