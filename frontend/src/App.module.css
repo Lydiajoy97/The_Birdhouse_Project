@@ -7,6 +7,10 @@
   min-height: 100vh;
 }
 
+.bird-background {
+    background-image: url("styles/images/bird-background.jpg");
+}
+
 a {
     color: rgb(90, 30, 81);
     transition: width 2s;
@@ -26,3 +30,4 @@ i:hover {
     color:rgb(162, 82, 165);
     transition: color ease-in-out 0.2s;
 }
+

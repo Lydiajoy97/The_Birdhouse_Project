@@ -3,8 +3,9 @@ import { Link, useHistory } from "react-router-dom";
 
 import styles from "../../styles/AccountCreation.module.css";
 import appStyles from "../../App.module.css";
-import { Form, Col, Row, Container, Button, Alert, } from "react-bootstrap";
+import { Form, Col, Row, Container, Button, Alert, Image } from "react-bootstrap";
 import axios from "axios";
+
 
 /* From bootstrap and code insitute walkthrough */
 
@@ -41,11 +42,11 @@ const AccountCreation = () => {
   };
 
   return (
-    <Row className={styles.Row}>
+    <Row className={styles.Row}> 
       <Col className="my-auto py-2 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>Create an account to show off your bird spots! </h1>
-                    <Form onSubmit={handleSubmit}>
+                    <Form onSubmit={handleSubmit} className="bird-background">
                       <Form.Group className="mb-3" controlId="emailaddress">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control 
@@ -122,7 +123,10 @@ const AccountCreation = () => {
         md={6}
         className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
       >
-      </Col>
+        <Image 
+          src={"../../src/styles/images/bird-background.jpg"} 
+        />
+        </Col>
     </Row>
   );
 };
