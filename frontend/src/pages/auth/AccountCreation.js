@@ -3,21 +3,21 @@ import { Link, useHistory } from "react-router-dom";
 
 import styles from "../../styles/AccountCreation.module.css";
 import appStyles from "../../App.module.css";
-import { Form, Col, Row, Container, Button } from "react-bootstrap";
+import { Form, Col, Row, Container, Button, Alert, } from "react-bootstrap";
 import axios from "axios";
 
 /* From bootstrap and code insitute walkthrough */
 
 const AccountCreation = () => {
   const [signingInFormData, setSignUpData] = useState({
-    displayname: "",
+    username: "",
     emailaddress: "",
     password1: "",
     password2: "",
   });
-  const { displayname, emailaddress, password1, password2 } = signingInFormData;
+  const { username, emailaddress, password1, password2 } = signingInFormData;
 
-  const [setErrors] = useState({});
+  const [errors, setErrors] = useState({});
 
   const history = useHistory();
 
@@ -31,12 +31,14 @@ const AccountCreation = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(""), signingInFormData;
-      history.push("/signin")
+      console.log(signingInFormData)
+      await axios.post("dj-rest-auth/registration/", signingInFormData)
+      history.push("/signin");
     } catch (err) {
       setErrors(err.response?.data);
     }
-  }
+    console.log()
+  };
 
   return (
     <Row className={styles.Row}>
@@ -54,27 +56,37 @@ const AccountCreation = () => {
                           onChange={handleChange} 
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="displayname">
+                      {errors.emailaddress?.map((message, idx) => 
+                          <Alert varient="warning" key={idx}>{message}</Alert>
+                      )}
+                      <Form.Group className="mb-3" controlId="username">
                         <Form.Label>Display Name</Form.Label>
                         <Form.Control 
                           as="textarea" 
-                          name ="displayname" 
+                          name ="username" 
                           rows={1} 
-                          value={displayname} 
+                          value={username} 
                           onChange={handleChange} 
                         />
                       </Form.Group>
+                      {errors.username?.map((message, idx) => 
+                          <Alert varient="warning" key={idx}>{message}</Alert>
+                      )}
                         <Form.Group as={Row} className="mb-3" controlId="password1" name="password1">
                           <Form.Label column sm="2"> Password </Form.Label>
                           <Col sm="10">
                             <Form.Control 
                               type="password" 
-                              placeholder="password" 
+                              placeholder="password"
+                              name="password1"
                               value={password1} 
                               onChange={handleChange} 
                             />
                           </Col>
                         </Form.Group>
+                        {errors.password1?.map((message, idx) => 
+                          <Alert varient="warning" key={idx}>{message}</Alert>
+                      )}
                       <Form.Group as={Row} className="mb-3" controlId="password2">
                         <Form.Label column sm="2">
                         Confirm Password
@@ -82,13 +94,22 @@ const AccountCreation = () => {
                         <Col sm="10">
                           <Form.Control 
                             type="password" 
-                            placeholder="Confirm Password" 
+                            placeholder="Confirm Password"
+                            name="password2"
                             value={password2} 
                             onChange={handleChange}
                           /> 
                         </Col>
                       </Form.Group>
+                      {errors.password2?.map((message, idx) => 
+                          <Alert varient="warning" key={idx}>{message}</Alert>
+                      )}
                       <Button type="submit"> Create Account </Button>
+                      {errors.nonfield_errors?.map((message, idx) => (
+                        <Alert key={idx} variant= "warning" className="mt-3">
+                          {message}
+                        </Alert>
+                      ))} 
                     </Form>
         </Container>
         <Container className={`mt-3 ${appStyles.Content}`}>

@@ -49,7 +49,7 @@ JWT_AUTH_SECURE = True
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 
 REST_AUTH_SERIALIZERS = {
-    'USER_DETAILS_SERIALIZER': 'drf_api.serializers.CurrentUserSerializer'
+    'USER_DETAILS_SERIALIZER': 'profiles.serializers.ProfileSerializer'
 }
 
 
@@ -60,11 +60,14 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEV' in os.environ
+# DEBUG = 'DEV' in os.environ
+DEBUG = 'DEBUG' in os.environ
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
-    '8000-lydiajoy97-thebirdhouse-m2a56p22l92.ws-eu114.gitpod.io', 'the-birdhouse-project-b719ced46037.herokuapp.com'
+        'localhost',
+        '8000-lydiajoy97-thebirdhouse-m2a56p22l92.ws-eu114.gitpod.io',
+        'https://the-birdhouse-project-b719ced46037.herokuapp.com',
     ]
 
 # Application definition
@@ -80,6 +83,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
+    'dj_rest_auth',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'dj_rest_auth.registration',
     'corsheaders',
 
@@ -132,7 +139,7 @@ WSGI_APPLICATION = 'the_birdhouse.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-if 'DEV' in os.environ:
+if 'DEBUG' in os.environ:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
