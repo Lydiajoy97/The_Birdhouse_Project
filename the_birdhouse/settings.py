@@ -60,16 +60,12 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEBUG' in os.environ
+DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
-    'localhost',
+    '8000-lydiajoy97-thebirdhouse-m2a56p22l92.ws-eu114.gitpod.io', 'the-birdhouse-project-b719ced46037.herokuapp.com'
     ]
-
-CORS_ALLOWED_ORIGINS = [
-    os.environ.get('CLIENT_ORIGIN')
-]
 
 # Application definition
 
@@ -103,6 +99,14 @@ MIDDLEWARE = [
 ]
 
 #from code institute deployment walkthrough to allow API to talk yo development enviroment
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
+else:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        r"^https://.*\.gitpod\.io$",
+    ]
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'the_birdhouse.urls'

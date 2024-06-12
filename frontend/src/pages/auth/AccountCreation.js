@@ -17,7 +17,7 @@ const AccountCreation = () => {
   });
   const { displayname, emailaddress, password1, password2 } = signingInFormData;
 
-  const [errors, setErrors] = useState({});
+  const [setErrors] = useState({});
 
   const history = useHistory();
 
@@ -36,7 +36,6 @@ const AccountCreation = () => {
     } catch (err) {
       setErrors(err.response?.data);
     }
-
   }
 
   return (
@@ -76,11 +75,6 @@ const AccountCreation = () => {
                             />
                           </Col>
                         </Form.Group>
-                        {errors.password1?.map((message, idx) => (
-                          <Alert key={idx} variant="warning">
-                            {message}
-                          </Alert>
-                        ))}
                       <Form.Group as={Row} className="mb-3" controlId="password2">
                         <Form.Label column sm="2">
                         Confirm Password
