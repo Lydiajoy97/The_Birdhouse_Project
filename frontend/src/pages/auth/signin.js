@@ -74,7 +74,7 @@ function SignInForm() {
                     <Alert key={idx} variant="warning">
                       {message}
                     </Alert>))}
-                  <Button type="submit" onchange={handleSubmit}> Sign In! </Button>
+                  <Button type="submit" onChange={handleSubmit}> Sign In! </Button>
                 {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
                 {message}
