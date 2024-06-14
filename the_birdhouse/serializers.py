@@ -1,11 +1,12 @@
-from rest_framework import UserDetailSerializer
+from dj_rest_auth.serializers import UserDetailsSerializer
 from rest_framework import serializers
 
-class UserDetailSerializer(serializers.ModelSerializer):
-    person = serializers.ReadOnlyField(source='person.username')
 
-    class Meta(UserDetailSerializer.Meta):
-        model = Profile
-        fields = UserDetailSerializer.Meta.fields + (
-            'id', 'person', 'display_name', 'about_me', 'image', 'favorite_bird', 'updated_at',
+class CurrentUserSerializer(UserDetailsSerializer):
+    profile_id = serializers.ReadOnlyField(source='profile.id')
+    profile_image = serializers.ReadOnlyField(source='profile.image.url')
+
+    class Meta(UserDetailsSerializer.Meta):
+        fields = UserDetailsSerializer.Meta.fields + (
+            'profile_id', 'profile_image'
         )

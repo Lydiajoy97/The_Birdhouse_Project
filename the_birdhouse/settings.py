@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 # cloudinary storage paths and database deployments built using code insitute walkthrough 
 from pathlib import Path
 import os 
+import re
 import dj_database_url
 
 if os.path.exists('env.py'): 
@@ -29,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Code insitutues building JWT tokens cheat sheet
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [( 
-        'rest_framework.authentication.SessionAuthentication' 
+        'rest_framework.authentication.SessionAuthentication'
         if 'DEV' in os.environ 
              else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
     )],
@@ -44,13 +45,13 @@ if 'DEV' not in os.environ:
         ]
 
 REST_USE_JWT = True
-JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_SECURE = True
+JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 JWT_AUTH_SAMESITE = 'None'
 
 REST_AUTH_SERIALIZERS = {
-    'USER_DETAILS_SERIALIZER': 'profiles.serializer.ProfileSerializer'
+    'USER_DETAILS_SERIALIZER': 'the_birdhouse.serializers.CurrentUserSerializer'
 }
 
 
@@ -70,6 +71,17 @@ ALLOWED_HOSTS = [
         '8000-lydiajoy97-thebirdhouse-fqnzv277dr8.ws.codeinstitute-ide.net',
         'https://the-birdhouse-project-b719ced46037.herokuapp.com',
     ]
+
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
+else:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        # r"^https://.*\.gitpod\.io$",
+        r"^https://.*\.codeinstitute-ide\.net$",
+    ]
+CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -106,18 +118,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-#from code institute deployment walkthrough to allow API to talk yo development enviroment
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
-else:
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        # r"^https://.*\.gitpod\.io$",
-        r"^https://.*\.codeinstitute-ide\.net$",
-    ]
-CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'the_birdhouse.urls'
 
