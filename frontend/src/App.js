@@ -12,20 +12,20 @@ export const SetCurrentUserContext = createContext();
 
 /* Built using Code insitute walkthrough*/
 function App() {
- const [currentUser, setCurrentUser] = useState(null)
+ const [currentUser, setCurrentUser] = useState(null);
 
  const handleMount = async () => {
-  try{
-    const {data} = await axios.get('dj-rest-auth/user')
-    setCurrentUser(data)
+  try {
+    const {data} = await axios.get('dj-rest-auth/user');
+    setCurrentUser(data);
   } catch(err) {
-     console.log(err)
+     console.log(err);
   }
  }
 
  useEffect(() => {
-    handleMount()
- }, [])
+    handleMount();
+ }, []);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

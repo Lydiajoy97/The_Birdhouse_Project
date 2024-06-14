@@ -8,8 +8,9 @@ import { CurrentUserContext } from "../App";
 
 const NavBar = () => {
   const currentUser = useContext(CurrentUserContext)
-  const LoggedIn = <>{currentUser?.username}</>
-  const LoggedOut = ( <>
+  const LoggedIn = <>{currentUser?.username}</>;
+  const LoggedOut = ( 
+   <>
           <NavLink 
             className={styles.NavLink}
             activeClassName={styles.Active} 
@@ -23,7 +24,7 @@ const NavBar = () => {
             <i className="fa-regular fa-id-card"></i>
           </NavLink>
     </>
-  )
+  );
 
   return (
     <Navbar className={styles.NavBar}>
