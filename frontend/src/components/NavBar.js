@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Navbar, Container, Nav } from "react-bootstrap";
 import styles from '../styles/NavBar.module.css';
 import { NavLink } from 'react-router-dom';
-import { CurrentUserContext } from "../App";
 import axios from "axios";
+import { useCurrentUser } from '../contexts/CurrentUserContext';
+
 
 /*NavBar built using code insitute walkthrough and bootstrap */
 
@@ -17,7 +18,7 @@ const NavBar = () => {
     }
   };
 
-  const currentUser = useContext(CurrentUserContext);
+  const currentUser = useCurrentUser();
 
   const loggedIn = <>{currentUser?.username}</>;
   const LoggedOut = ( <>

@@ -4,32 +4,11 @@ import Container from "react-bootstrap/Container";
 import { Switch, Route } from "react-router-dom";
 import AccountCreation from "./pages/auth/AccountCreation";
 import SignInForm from "./pages/auth/signin";
-import { createContext, useEffect, useState } from "react";
-import axios from "axios";
-
-export const CurrentUserContext = createContext();
-export const SetCurrentUserContext = createContext();
 
 /* Built using Code insitute walkthrough*/
-function App() {
- const [currentUser, setCurrentUser] = useState(null);
+function App() { 
 
- const handleMount = async () => {
-  try {
-    const { data } = await axios.get("dj-rest-auth/user/");
-    setCurrentUser(data);
-  } catch(err) {
-     console.log(err);
-  }
- }
-
- useEffect(() => {
-    handleMount();
- }, []);
-
-  return (
-    <CurrentUserContext.Provider value={currentUser}>
-      <SetCurrentUserContext.Provider value={setCurrentUser}>
+  return ( 
         <div className={styles.App}>
           <NavBar />
             <Container className={styles.Main}>
@@ -42,8 +21,6 @@ function App() {
               </Switch>
             </Container>
         </div>
-      </SetCurrentUserContext.Provider>
-    </CurrentUserContext.Provider>
   );
 }
 
