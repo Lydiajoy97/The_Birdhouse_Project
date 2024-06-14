@@ -3,23 +3,33 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import styles from '../styles/NavBar.module.css';
 import { NavLink } from 'react-router-dom';
 import axios from "axios";
-import { useCurrentUser } from '../contexts/CurrentUserContext';
+import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 
 /*NavBar built using code insitute walkthrough and bootstrap */
-
 const NavBar = () => {
+  const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
+
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
-      currentUser(null);
+      setCurrentUser(null);
     } catch (err) {
       console.log(err);
     }
   };
 
-  const currentUser = useCurrentUser();
+  const loggedIn = ( 
+   <>
+    <NavLink
+      exact 
+      className={styles.NavLink}
+      to= "/" 
+      onClick={handleSignOut}> Fly Out
+    </NavLink>
+  </>
+  );
 
-  const loggedIn = <>{currentUser?.username}</>;
   const LoggedOut = ( <>
           <NavLink 
             className={styles.NavLink}
@@ -55,12 +65,9 @@ const NavBar = () => {
             <NavLink 
               className={styles.NavLink}
               activeClassName={styles.Active}
-              to= "/bird-spot"> Bird Spotting 
+              to= "/bird-spot"> Bird house
               <i className="fa-solid fa-feather-pointed"></i>
             </NavLink>
-            <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt"></i> Fly out
-      </NavLink>
       <NavLink
         className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
