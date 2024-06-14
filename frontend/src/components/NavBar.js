@@ -1,16 +1,26 @@
-import React, { useContext } from 'react'
-import { Navbar, Container } from "react-bootstrap";
+import React, { useContext } from 'react';
+import { Navbar, Container, Nav } from "react-bootstrap";
 import styles from '../styles/NavBar.module.css';
 import { NavLink } from 'react-router-dom';
 import { CurrentUserContext } from "../App";
+import axios from "axios";
 
 /*NavBar built using code insitute walkthrough and bootstrap */
 
 const NavBar = () => {
-  const currentUser = useContext(CurrentUserContext)
-  const LoggedIn = <>{currentUser?.username}</>;
-  const LoggedOut = ( 
-   <>
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      currentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const currentUser = useContext(CurrentUserContext);
+
+  const loggedIn = <>{currentUser?.username}</>;
+  const LoggedOut = ( <>
           <NavLink 
             className={styles.NavLink}
             activeClassName={styles.Active} 
@@ -34,21 +44,31 @@ const NavBar = () => {
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          <NavLink 
-            exact 
-            className={styles.NavLink}
-            activeClassName={styles.Active}
-            to= "/"> Fly Home 
-            <i className="fas fa-home"></i>
-          </NavLink>
-          <NavLink 
-            className={styles.NavLink}
-            activeClassName={styles.Active}
-            to= "/bird-spot"> Bird Spotting 
-            <i className="fa-solid fa-feather-pointed"></i>
-          </NavLink>
-          {currentUser ? LoggedIn : LoggedOut }
-          </Navbar.Collapse>
+          <Nav>
+            <NavLink 
+              exact 
+              className={styles.NavLink}
+              activeClassName={styles.Active}
+              to= "/"> Fly Home 
+              <i className="fas fa-home"></i>
+            </NavLink>
+            <NavLink 
+              className={styles.NavLink}
+              activeClassName={styles.Active}
+              to= "/bird-spot"> Bird Spotting 
+              <i className="fa-solid fa-feather-pointed"></i>
+            </NavLink>
+            <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+        <i className="fas fa-sign-out-alt"></i>Sign out
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        to={`/profiles/${currentUser?.profile_id}`}
+      >
+      </NavLink>
+        {currentUser ? loggedIn : LoggedOut }
+          </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
