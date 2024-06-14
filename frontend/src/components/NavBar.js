@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 import axios from "axios";
 import { useCurrentUser } from '../contexts/CurrentUserContext';
 
-
 /*NavBar built using code insitute walkthrough and bootstrap */
 
 const NavBar = () => {
@@ -25,7 +24,7 @@ const NavBar = () => {
           <NavLink 
             className={styles.NavLink}
             activeClassName={styles.Active} 
-            to= "/signin"> Sign into Account 
+            to= "/signin"> Fly into Account 
             <i className="fa-solid fa-dove"></i>
           </NavLink>
           <NavLink 
@@ -60,7 +59,7 @@ const NavBar = () => {
               <i className="fa-solid fa-feather-pointed"></i>
             </NavLink>
             <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt"></i>Sign out
+        <i className="fas fa-sign-out-alt"></i> Fly out
       </NavLink>
       <NavLink
         className={styles.NavLink}
