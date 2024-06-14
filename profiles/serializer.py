@@ -1,0 +1,19 @@
+from rest_framework import serializers
+from .models import Profile 
+
+# from code insitute drf_api walkthrough
+
+class ProfileSerializer(serializers.ModelSerializer):
+    person = serializers.ReadOnlyField(source='owner.username')
+    is_person = serializers.serializers.serializersMethodField()
+    posts_count = serializers.ReadOnlyField()
+
+def get_is_owner(self, obj):
+    request = self.context['request']
+    return request.user == obj.owner
+
+class Meta:
+        model = Profile
+        fields = (
+            'id', 'person', 'display_name', 'about_me', 'image', 'favorite_bird', 'updated_at',
+        )
