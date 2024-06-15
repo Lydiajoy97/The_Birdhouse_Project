@@ -4,10 +4,7 @@ import styles from '../styles/NavBar.module.css';
 import thebirdhouselogo from '../assets/thebirdhouselogo.png';
 import { NavLink } from 'react-router-dom';
 import axios from "axios";
-import { 
-  useCurrentUser, 
-  useSetCurrentUser,
-} from '../contexts/CurrentUserContext';
+import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 
 /*NavBar built using code insitute walkthrough and bootstrap */
 const NavBar = () => {

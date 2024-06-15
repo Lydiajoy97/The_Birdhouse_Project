@@ -56,7 +56,8 @@ function SignInForm() {
             {errors.username?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
-              </Alert>))}
+              </Alert>
+            ))}
           <Form.Group as={Row} className="mb-3" controlId="password1" name="password1">
             <Form.Label column sm="2"> Password </Form.Label>
               <Col sm="10">

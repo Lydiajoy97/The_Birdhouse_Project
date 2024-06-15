@@ -11,7 +11,8 @@ root.render(
   <Router>
   <React.StrictMode>
     <CurrentUserProvider>
-    <App /></CurrentUserProvider>
+      <App />
+    </CurrentUserProvider>
   </React.StrictMode>
   </Router>
 );

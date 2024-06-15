@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from .models import Birdpost
 from rest_framework import serializers
 from about.serializers import BirdpostSerializer
-from the_birdhouse.permissions import IsPersonOrReadOnly
+from the_birdhouse.permissions import IsOwnerOrReadOnly
 
 # Code written from django rest framework walkthrough
 class BirdpostList(APIView):
@@ -34,7 +34,7 @@ class BirdpostList(APIView):
         )
 
 class BirdpostDetail(APIView):
-    permission_classes = [IsPersonOrReadOnly]
+    permission_classes = [IsOwnerOrReadOnly]
     serializer_class = BirdpostSerializer
 
     def get_object(self, pk):

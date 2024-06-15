@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Profile
 from .serializer import ProfileSerializer
-from the_birdhouse.permissions import IsPersonOrReadOnly
+from the_birdhouse.permissions import IsOwnerOrReadOnly
 
 
 # From code insitutes Django rest framework walkthrough
@@ -15,8 +15,9 @@ class ProfileList(APIView):
         return Response(serializer.data)
 
 class ProfileDetail(APIView):
+    profiles = Profile.objects.all()
     serializer_class = ProfileSerializer
-    permission_classes = [IsPersonOrReadOnly]
+    permission_classes = [IsOwnerOrReadOnly]
 
     def get_object(self, pk):
         try:
