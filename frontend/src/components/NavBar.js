@@ -3,8 +3,8 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import styles from '../styles/NavBar.module.css';
 import thebirdhouselogo from '../assets/thebirdhouselogo.png';
 import { NavLink } from 'react-router-dom';
-import axios from "axios";
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
+import axios from "axios";
 
 /*NavBar built using code insitute walkthrough and bootstrap */
 const NavBar = () => {
@@ -20,18 +20,42 @@ const NavBar = () => {
     }
   };
 
-  const loggedIn = ( 
-   <>
+  const addPostIcon = (
     <NavLink
-      exact 
       className={styles.NavLink}
-      to= "/" 
-      onClick={handleSignOut}> Fly Out
+      activeClassName={styles.Active}
+      to="/bird-posts/create"
+    >
+      <i className="far fa-plus-square"></i> Add Bird
     </NavLink>
-  </>
   );
 
-  const LoggedOut = ( <>
+  const loggedInIcons = ( 
+   <>
+      <NavLink 
+        className={styles.NavLink}
+        activeClassName={styles.Active} 
+        to= "/bird-spots"
+      > Fly into Account 
+        <i className="fa-solid fa-dove"></i>
+      </NavLink>
+      <NavLink
+        onClick={handleSignOut}
+        className={styles.NavLink}
+        to= "/" 
+      > 
+        <i className="fas fa-sign-out-alt"></i>Fly Out
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        to={`/profiles/${currentUser?.profile_id}`}
+      > 
+        {currentUser?.username}
+      </NavLink>
+    </>
+  );
+
+  const loggedOutIcons = ( <>
           <NavLink 
             className={styles.NavLink}
             activeClassName={styles.Active} 
@@ -54,6 +78,7 @@ const NavBar = () => {
           <img src={thebirdhouselogo} alt="logo" height="60"></img>
         </Navbar.Brand>
         <Navbar.Toggle />
+        {currentUser && addPostIcon}
         <Navbar.Collapse className="justify-content-end">
           <Nav>
             <NavLink 
@@ -69,12 +94,7 @@ const NavBar = () => {
               to= "/bird-spot"> Bird house
               <i className="fa-solid fa-feather-pointed"></i>
             </NavLink>
-      <NavLink
-        className={styles.NavLink}
-        to={`/profiles/${currentUser?.profile_id}`}
-      >
-      </NavLink>
-        {currentUser ? loggedIn : LoggedOut }
+              {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
       </Container>

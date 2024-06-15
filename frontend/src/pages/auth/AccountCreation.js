@@ -12,7 +12,7 @@ const AccountCreation = () => {
   const [signingInFormData, setSignUpData] = useState({
     username: "",
     emailaddress: "",
-    password: "",
+    password1: "",
     password2: "",
   });
   const { username, emailaddress, password1, password2 } = signingInFormData;
@@ -33,7 +33,7 @@ const AccountCreation = () => {
     try {
       console.log(signingInFormData)
       await axios.post("dj-rest-auth/registration/", signingInFormData)
-      history.push("/signin");
+      history.push("/bird-posts");
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -72,19 +72,19 @@ const AccountCreation = () => {
                       {errors.username?.map((message, idx) => 
                           <Alert varient="warning" key={idx}>{message}</Alert>
                       )}
-                        <Form.Group as={Row} className="mb-3" controlId="password" name="password">
+                        <Form.Group as={Row} className="mb-3" controlId="password1">
                           <Form.Label column sm="2"> Password </Form.Label>
                           <Col sm="10">
                             <Form.Control 
                               type="password" 
-                              placeholder="password"
-                              name="password"
-                              value={password} 
+                              placeholder="password1"
+                              name="password1"
+                              value={password1} 
                               onChange={handleChange} 
                             />
                           </Col>
                         </Form.Group>
-                        {errors.password?.map((message, idx) => 
+                        {errors.password1?.map((message, idx) => 
                           <Alert varient="warning" key={idx}>{message}</Alert>
                       )}
                       <Form.Group as={Row} className="mb-3" controlId="password2">

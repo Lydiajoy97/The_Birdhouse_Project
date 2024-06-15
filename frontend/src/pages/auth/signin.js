@@ -25,6 +25,7 @@ function SignInForm() {
   const history = useHistory();
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     try {
       const {data} = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user)
@@ -42,7 +43,7 @@ function SignInForm() {
   };
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="username">
         <Form.Label>Display Name</Form.Label>
           <Form.Control 
@@ -58,7 +59,7 @@ function SignInForm() {
                 {message}
               </Alert>
             ))}
-          <Form.Group as={Row} className="mb-3" controlId="password" name="password">
+          <Form.Group as={Row} className="mb-3" controlId="password">
             <Form.Label column sm="2"> Password </Form.Label>
               <Col sm="10">
                 <Form.Control 
@@ -74,7 +75,7 @@ function SignInForm() {
                     <Alert key={idx} variant="warning">
                       {message}
                     </Alert>))}
-                  <Button type="submit" onClick={handleSubmit}> Sign In! </Button>
+                  <Button type="submit"> Sign in here </Button>
                 {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
                 {message}
