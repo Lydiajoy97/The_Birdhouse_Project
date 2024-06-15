@@ -12,7 +12,7 @@ const AccountCreation = () => {
   const [signingInFormData, setSignUpData] = useState({
     username: "",
     emailaddress: "",
-    password1: "",
+    password: "",
     password2: "",
   });
   const { username, emailaddress, password1, password2 } = signingInFormData;
@@ -72,7 +72,7 @@ const AccountCreation = () => {
                       {errors.username?.map((message, idx) => 
                           <Alert varient="warning" key={idx}>{message}</Alert>
                       )}
-                        <Form.Group as={Row} className="mb-3" controlId="password1" name="password1">
+                        <Form.Group as={Row} className="mb-3" controlId="password" name="password">
                           <Form.Label column sm="2"> Password </Form.Label>
                           <Col sm="10">
                             <Form.Control 
