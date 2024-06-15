@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Container, Nav } from "react-bootstrap";
 import styles from '../styles/NavBar.module.css';
-import logo from '../assets/logo.png';
+import thebirdhouselogo from '../assets/thebirdhouselogo.png';
 import { NavLink } from 'react-router-dom';
 import axios from "axios";
 import { 
@@ -54,7 +54,7 @@ const NavBar = () => {
     <Navbar className={styles.NavBar}>
       <Container>
         <Navbar.Brand> 
-          <img src={logo} alt="logo" height="40"></img>
+          <img src={thebirdhouselogo} alt="logo" height="60"></img>
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">

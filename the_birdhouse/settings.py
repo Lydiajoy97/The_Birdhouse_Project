@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 # cloudinary storage paths and database deployments built using code insitute walkthrough 
 from pathlib import Path
 import os 
-import re
 import dj_database_url
 
 if os.path.exists('env.py'): 
@@ -32,10 +31,11 @@ REST_FRAMEWORK = {
 
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    ],
     
-    'DEFAULT_AUTHENTICATION_CLASSES':
+    'DEFAULT_AUTHENTICATION_CLASSES': [
         'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+    ],
 
     'DEFAULT_PAGINATION_CLASS':
         'rest_framework.pagination.PageNumberPagination',
@@ -48,14 +48,11 @@ if 'DEV' not in os.environ:
             'rest_framework.renderers.JSONRenderer',
         ]
 
-REST_USE_JWT = True
+#REST_USE_JWT = True
 JWT_AUTH_SECURE = True
+JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
-# CSRF_COOKIE_NAME = 'csrftoken'
 JWT_AUTH_SAMESITE = 'None'
-# CSRF_COOKIE_SAMESITE = 'None'
-# SESSION_COOKIE_SAMESITE = 'None'
-JWT_AUTH_COOKIE = 'jwt-auth'
 
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'the_birdhouse.serializers.CurrentUserSerializer'
@@ -69,7 +66,7 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEV' in os.environ
+DEBUG = 'DEBUG' in os.environ
 DEBUG = False
 
 ALLOWED_HOSTS = [
@@ -77,17 +74,10 @@ ALLOWED_HOSTS = [
         'localhost',
     ]
     # Help to write from project 5 slack channel and walkthrough
-if 'CLIENT_ORIGIN' in os.environ:
-        CORS_ALLOWED_ORIGINS = [
-            os.environ.get('CLIENT_ORIGIN')
-        ]
-if "CLIENT_ORIGIN_DEV" in os.environ:
-    extracted_url = re.match(
-        r"^.+-", os.environ.get("CLIENT_ORIGIN_DEV", ""), re.IGNORECASE
-    ).group(0)
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
-    ]
+
+CORS_ALLOWED_ORIGINS =[
+    os.environ.get('CLIENT_ORIGIN')
+]
 
 CSRF_TRUSTED_ORIGINS = [os.environ.get(
     'CLIENT_ORIGIN_DEV',
