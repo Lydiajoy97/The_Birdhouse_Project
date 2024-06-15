@@ -7,9 +7,10 @@
 import axios from "axios";
 
 axios.defaults.headers.post['Content-Type'] = "multipart/form-data";
+axios.defaults.headers.common['Authorization'] = 
 axios.defaults.withCredentials = true;
-axios.defaults.xsrfCookieName = 'csrftoken';
-axios.defaults.xsrfHeaderName= 'X-CSRFToken';
+/*axios.defaults.xsrfCookieName = 'csrftoken';*/
+/* axios.defaults.xsrfHeaderName= 'X-CSRFToken'; */
 
 export const axiosReq = axios.create();
 export const axiosRes = axios.create();

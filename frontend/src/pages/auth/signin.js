@@ -6,7 +6,7 @@ import Alert from "react-bootstrap/Alert";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 /* From Code Insitute walkthrough */
