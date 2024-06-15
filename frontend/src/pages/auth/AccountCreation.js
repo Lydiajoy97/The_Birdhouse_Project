@@ -122,9 +122,6 @@ const AccountCreation = () => {
         md={6}
         className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
       >
-        <Image 
-          src={"../../src/styles/images/bird-background.jpg"} 
-        />
         </Col>
     </Row>
   );

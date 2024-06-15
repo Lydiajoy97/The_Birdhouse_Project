@@ -7,10 +7,6 @@
   min-height: 100vh;
 }
 
-.bird-background {
-    background-image: url("styles/images/bird-background.jpg");
-}
-
 a {
     color: rgb(90, 30, 81);
     transition: width 2s;
