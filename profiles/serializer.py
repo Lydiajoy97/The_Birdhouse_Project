@@ -4,7 +4,8 @@ from .models import Profile
 # from code insitute drf_api walkthrough
 
 class ProfileSerializer(serializers.ModelSerializer):
-    person = serializers.ReadOnlyField(source='owner.username')
+    owner = serializers.ReadOnlyField(source='owner.username')
+    is_owner = serializers.SerializerMethodField()
     posts_count = serializers.ReadOnlyField()
 
     def get_is_owner(self, obj):

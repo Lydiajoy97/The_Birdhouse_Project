@@ -29,9 +29,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Code insitutues building JWT tokens cheat sheet
 REST_FRAMEWORK = {
+
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
     
     'DEFAULT_AUTHENTICATION_CLASSES':
-        
         'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
 
     'DEFAULT_PAGINATION_CLASS':
@@ -46,10 +49,10 @@ if 'DEV' not in os.environ:
         ]
 
 REST_USE_JWT = True
-# JWT_AUTH_SECURE = True
+JWT_AUTH_SECURE = True
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 # CSRF_COOKIE_NAME = 'csrftoken'
-# JWT_AUTH_SAMESITE = 'None'
+JWT_AUTH_SAMESITE = 'None'
 # CSRF_COOKIE_SAMESITE = 'None'
 # SESSION_COOKIE_SAMESITE = 'None'
 JWT_AUTH_COOKIE = 'jwt-auth'
@@ -72,24 +75,24 @@ DEBUG = False
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
         'localhost',
-        '8000-lydiajoy97-thebirdhouse-fqnzv277dr8.ws.codeinstitute-ide.net',
-        'https://the-birdhouse-project-b719ced46037.herokuapp.com',
     ]
-
+    # Help to write from project 5 slack channel and walkthrough
 if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
-else:
+        CORS_ALLOWED_ORIGINS = [
+            os.environ.get('CLIENT_ORIGIN')
+        ]
+if "CLIENT_ORIGIN_DEV" in os.environ:
+    extracted_url = re.match(
+        r"^.+-", os.environ.get("CLIENT_ORIGIN_DEV", ""), re.IGNORECASE
+    ).group(0)
     CORS_ALLOWED_ORIGIN_REGEXES = [
-        # r"^https://.*\.gitpod\.io$",
-        r"^https://.*\.codeinstitute-ide\.net$",
+        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
 
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-    "https://lydiajoy97-thebirdhouse-fqnzv277dr8.ws.codeinstitute-ide.net/",
-]
+CSRF_TRUSTED_ORIGINS = [os.environ.get(
+    'CLIENT_ORIGIN_DEV',
+    'CLIENT_ORIGIN',
+    )]
 
 CORS_ALLOW_CREDENTIALS = True
 
