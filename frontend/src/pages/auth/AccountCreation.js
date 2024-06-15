@@ -78,13 +78,13 @@ const AccountCreation = () => {
                             <Form.Control 
                               type="password" 
                               placeholder="password"
-                              name="password1"
-                              value={password1} 
+                              name="password"
+                              value={password} 
                               onChange={handleChange} 
                             />
                           </Col>
                         </Form.Group>
-                        {errors.password1?.map((message, idx) => 
+                        {errors.password?.map((message, idx) => 
                           <Alert varient="warning" key={idx}>{message}</Alert>
                       )}
                       <Form.Group as={Row} className="mb-3" controlId="password2">

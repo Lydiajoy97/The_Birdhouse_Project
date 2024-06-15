@@ -16,9 +16,9 @@ function SignInForm() {
 
   const [signInData, setSignInData] = useState({
     username: "",
-    password1: "",
+    password: "",
   });
-  const { username, password1 } = signInData;
+  const { username, password } = signInData;
 
   const [ errors, setErrors ] = useState({});
 
@@ -58,23 +58,23 @@ function SignInForm() {
                 {message}
               </Alert>
             ))}
-          <Form.Group as={Row} className="mb-3" controlId="password1" name="password1">
+          <Form.Group as={Row} className="mb-3" controlId="password" name="password">
             <Form.Label column sm="2"> Password </Form.Label>
               <Col sm="10">
                 <Form.Control 
                   type="password" 
                   placeholder="password"
-                  name="password1"
-                  value={password1} 
+                  name="password"
+                  value={password} 
                   onChange={handleChange} 
                 />
                 </Col>
                 </Form.Group>
-                  {errors.password1?.map((message, idx) => (
+                  {errors.password?.map((message, idx) => (
                     <Alert key={idx} variant="warning">
                       {message}
                     </Alert>))}
-                  <Button type="submit" onChange={handleSubmit}> Sign In! </Button>
+                  <Button type="submit" onClick={handleSubmit}> Sign In! </Button>
                 {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className="mt-3">
                 {message}
