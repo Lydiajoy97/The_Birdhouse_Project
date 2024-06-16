@@ -1,3 +1,4 @@
+/*from code insitutes walkthrough */
 // import React from "react";
 
 // const ProfilePic ({ src, height = 45, text }) => {
