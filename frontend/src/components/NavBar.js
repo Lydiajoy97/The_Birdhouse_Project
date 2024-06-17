@@ -44,15 +44,15 @@ const NavBar = () => {
         to= "/bird-spots"
         className={styles.NavLink}
         activeClassName={styles.Active} 
-      > Fly into Account 
+      > Bird House  
         <i className="fa-solid fa-dove"></i>
       </NavLink>
       <NavLink
         to= "/"
         onClick={handleSignOut}
         className={styles.NavLink}
-      >
-        <i className="fas fa-sign-out-alt"></i>Fly Out
+      >Fly Out  
+        <i className="fas fa-sign-out-alt"></i>
       </NavLink>
       <NavLink
         to="/profiles"
@@ -69,21 +69,21 @@ const NavBar = () => {
         to= "/signin"
         className={styles.NavLink}
         activeClassName={styles.Active} 
-      > Fly into Account 
+      > Fly into Account  
         <i className="fa-solid fa-dove"></i>
       </NavLink>
       <NavLink 
         to= "/signup"
         className={styles.NavLink}
         activeClassName={styles.Active}
-      > Create Account 
+      > Create Account  
         <i className="fa-regular fa-id-card"></i>
       </NavLink>
       <NavLink 
         to= "/bird-spot"
         className={styles.NavLink}
         activeClassName={styles.Active}
-      > Bird house
+      > Bird house  
         <i className="fa-solid fa-feather-pointed"></i>
       </NavLink>
     </>
