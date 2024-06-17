@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 
 import styles from "../../styles/AccountCreation.module.css";
 import appStyles from "../../App.module.css";
-import { Form, Col, Row, Container, Button, Alert, Image } from "react-bootstrap";
+import { Form, Col, Row, Container, Button, Alert, } from "react-bootstrap";
 import axios from "axios";
 
 /* From bootstrap and code insitute walkthrough */

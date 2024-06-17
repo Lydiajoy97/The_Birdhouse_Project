@@ -7,6 +7,10 @@
   min-height: 100vh;
 }
 
+.Main {
+    padding-top: 90px;
+}
+
 a {
     color: rgb(90, 30, 81);
     transition: width 2s;

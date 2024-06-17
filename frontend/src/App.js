@@ -2,6 +2,7 @@ import styles from "./App.module.css";
 import NavBar from "./components/NavBar";
 import Container from "react-bootstrap/Container";
 import { Switch, Route } from "react-router-dom";
+import "./api/axiosDefaults";
 import AccountCreation from "./pages/auth/AccountCreation";
 import SignInForm from "./pages/auth/signin";
 
