@@ -30,7 +30,7 @@ const NavBar = () => {
 
   const addPostIcon = (
     <NavLink
-      to="/bird-posts/create"
+      to="/posts/create"
       className={styles.NavLink}
       activeClassName={styles.Active}
     >
