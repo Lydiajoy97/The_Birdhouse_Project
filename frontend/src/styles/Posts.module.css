@@ -1,0 +1,25 @@
+/* From Code Insitutes walkthrough */
+.Post {
+    background-color: #ffffff;
+    border: 1px solid #8a8af8;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .Post figure,
+  h5 {
+    margin: 0 0;
+  }
+  
+  .Heart {
+    color: #df19b4c5;
+  }
+  
+  .Heart:hover {
+    color: #e15fb6;
+  }
+  
+  .HeartOutline:hover {
+    color: #f3cde4;
+  }

@@ -62,7 +62,7 @@ function PostCreateFrom() {
   
 
       try {
-      const { data } =await axiosReq.post('./bird-post/', formData);
+      const { data } =await axiosReq.post('/posts/', formData);
        history.push(`/posts/${data.id}`);
       } catch(err){ 
         console.log(err)

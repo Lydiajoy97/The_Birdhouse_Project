@@ -41,7 +41,7 @@ const NavBar = () => {
   const loggedInIcons = ( 
     <>
       <NavLink 
-        to= "/bird-spots"
+        to= "/posts/id"
         className={styles.NavLink}
         activeClassName={styles.Active} 
       > Bird House  
