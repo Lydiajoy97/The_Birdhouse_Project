@@ -1,5 +1,5 @@
 /* From Code Insitutes Moments walkthrough */
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -14,8 +14,10 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Assets";
 import { Image } from "react-bootstrap";
+import { useHistory } from "react-router";
+import { axiosReq } from "../../api/axiosDefaults";
 
-function CreatePosts() {
+function PostCreateFrom() {
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
@@ -26,6 +28,9 @@ function CreatePosts() {
     catogries:"",
   });
   const { name, location, content, image, catogries } = postData;
+
+  const imageInput = useRef(null)
+  const history = useHistory()
 
   const handleChange = (event) => {
     setPostData({
@@ -44,6 +49,28 @@ function CreatePosts() {
     }
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+      formData.append('name', name);
+      formData.append('content', content);
+      formData.append('location', location);
+      formData.append('image', imageInput.current.files[0]);
+      formData.append('catogories', catogries);
+  
+
+      try {
+      const { data } =await axiosReq.post('./bird-posts/', formData);
+       history.push(`/posts/${data.id}`);
+      } catch(err){ 
+        console.log(err)
+        if (err.response?.status !== 401) {
+         setErrors(err.response?.data)
+      }
+    }
+  }
+
   const textFields = (
     <div className="text-center">
       <Form.Group>
@@ -56,24 +83,26 @@ function CreatePosts() {
           onChange={handleChange}
         />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+      <Form.Group className="mb-3" controlId="content">
         <Form.Label>Tell us about the bird you spotted</Form.Label>
         <Form.Control 
           as="textarea" 
           rows={8} 
           name="content"
-          value={content}/>
+          value={content}
+          onChange={handleChange}/>
       </Form.Group>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+      <Form.Group className="mb-3" controlId="location">
         <Form.Label>Location</Form.Label>
         <Form.Control 
           type="text" 
           placeholder="Help others to find it" 
           name="location"
+          onChange={handleChange}
           value={location}
         />
       </Form.Group>
-      <Form.Select 
+      {/* <Form.Select 
         aria-label="Default select example" 
         name="catorgies"
         value={catogries}>
@@ -87,10 +116,10 @@ function CreatePosts() {
         <option value="7">Swift</option>
         <option value="8">Aquatic Birds</option>
         <option value="8">Other/ Unsure</option>
-     </Form.Select>
+     </Form.Select> */}
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => {}}
+        onClick={() => history.goBack()}
       >
         cancel
       </Button>
@@ -101,7 +130,7 @@ function CreatePosts() {
   );
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Row>
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
           <Container
@@ -130,12 +159,17 @@ function CreatePosts() {
                   <Asset className="pink-upload" 
                     src={PinkUpload} 
                     message="Upload a picture of your bird here"
-                    onChange={handleChangeImage} />
+                  />
                 </Form.Label>
               )}
               
 
-              <Form.File id="image-upload" accept="image/*"/>
+              <Form.File 
+                id="image-upload" 
+                accept="image/*"
+                onChange={handleChangeImage}
+                ref={imageInput}
+                />
             </Form.Group>
             <div className="d-md-none">{textFields}</div>
           </Container>
@@ -148,4 +182,4 @@ function CreatePosts() {
   );
 }
 
-export default CreatePosts;
+export default PostCreateFrom;
