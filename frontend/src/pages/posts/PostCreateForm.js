@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
 
 import PinkUpload from "../../assets/PinkUpload.png";
 
@@ -61,7 +62,7 @@ function PostCreateFrom() {
   
 
       try {
-      const { data } =await axiosReq.post('./bird-posts/', formData);
+      const { data } =await axiosReq.post('./bird-post/', formData);
        history.push(`/posts/${data.id}`);
       } catch(err){ 
         console.log(err)
@@ -83,6 +84,11 @@ function PostCreateFrom() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors?.name?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group className="mb-3" controlId="content">
         <Form.Label>Tell us about the bird you spotted</Form.Label>
         <Form.Control 
@@ -92,6 +98,11 @@ function PostCreateFrom() {
           value={content}
           onChange={handleChange}/>
       </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group className="mb-3" controlId="location">
         <Form.Label>Location</Form.Label>
         <Form.Control 

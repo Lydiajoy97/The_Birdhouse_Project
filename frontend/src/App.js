@@ -6,6 +6,7 @@ import "./api/axiosDefaults";
 import AccountCreation from "./pages/auth/AccountCreation";
 import SignInForm from "./pages/auth/signin";
 import PostCreateFrom from "./pages/posts/PostCreateForm"
+import BirdPostPage from "./pages/posts/BirdPostPage";
 
 /* Built using Code insitute walkthrough*/
 function App() { 
@@ -16,10 +17,10 @@ function App() {
             <Container className={styles.Main}>
               <Switch>
                 <Route exact path="/" render={() => <h1>Home page</h1>} />
-                <Route exact path="/bird-post" render={() => <h1>Bird Posts</h1>} />
                 <Route exact path="/signup"  render={() => <AccountCreation/>} />
                 <Route exact path="/signin" render={() => <SignInForm/>} />
                 <Route exact path="/posts/create" render={() => <PostCreateFrom/>} />
+                <Route exact path="/posts/:id" render={() => <BirdPostPage/>} />
                 <Route render={() => <p>Page not found!</p>} />
               </Switch>
             </Container>

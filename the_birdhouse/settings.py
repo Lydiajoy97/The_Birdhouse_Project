@@ -114,7 +114,7 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration',
     'corsheaders',
 
-    'about',
+    'birdpost',
     'profiles',
 ]
 SITE_ID = 1

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from about.models import Birdpost
+from birdpost.models import Birdpost
 from django.contrib.humanize.templatetags.humanize import naturaltime
 
 class BirdpostSerializer(serializers.ModelSerializer):
