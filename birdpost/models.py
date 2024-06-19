@@ -15,4 +15,3 @@ class Birdpost(models.Model):
     content = models.TextField(blank=True)
     updated_at = models.DateTimeField(auto_now=True)
     uploaded_by = models.CharField(max_length=255, default='name')
-    categories = models.ManyToManyField("Category", related_name="birdpost")
