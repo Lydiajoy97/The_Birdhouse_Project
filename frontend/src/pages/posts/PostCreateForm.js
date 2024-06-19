@@ -27,9 +27,8 @@ function PostCreateFrom() {
     content:"",
     image:"",
     title: "",
-    catogries: "",
   });
-  const { name, location, content, image, title, catogries } = postData;
+  const { name, location, content, image, title, } = postData;
 
   const imageInput = useRef(null)
   const history = useHistory()
@@ -56,12 +55,11 @@ function PostCreateFrom() {
     const formData = new FormData();
 
       formData.append('name', name);
+      formData.append('title', title);
       formData.append('content', content);
       formData.append('location', location);
       formData.append('image', imageInput.current.files[0]);
-      formData.append('catogories', catogries);
   
-
       try {
       const { data } =await axiosReq.post('/birdpost/', formData);
        history.push(`/birdpost/${data.id}`);
@@ -100,7 +98,7 @@ function PostCreateFrom() {
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.name?.map((message, idx) => (
+      {errors?.title?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
@@ -114,7 +112,7 @@ function PostCreateFrom() {
           value={content}
           onChange={handleChange}/>
       </Form.Group>
-      {errors?.title?.map((message, idx) => (
+      {errors?.content?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>

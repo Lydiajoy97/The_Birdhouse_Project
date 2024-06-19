@@ -33,7 +33,7 @@ const AccountCreation = () => {
     try {
       console.log(signingInFormData)
       await axios.post("dj-rest-auth/registration/", signingInFormData)
-      history.push("/bird-posts");
+      history.push("/birdpost");
     } catch (err) {
       setErrors(err.response?.data);
     }
