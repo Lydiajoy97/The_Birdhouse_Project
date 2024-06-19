@@ -17,7 +17,7 @@ function BirdPostPage() {
     const handleMount = async () => {
         try {
           const [{ data: post }] = await Promise.all([
-            axiosReq.get(`/posts/${id}`)
+            axiosReq.get(`/birdpost/${id}`)
           ])
           setPost({results: [post] })
           console.log(post);

@@ -20,7 +20,7 @@ function App() {
                 <Route exact path="/signup"  render={() => <AccountCreation/>} />
                 <Route exact path="/signin" render={() => <SignInForm/>} />
                 <Route exact path="/posts/create" render={() => <PostCreateFrom/>} />
-                <Route exact path="/posts/:id" render={() => <BirdPostPage/>} />
+                <Route exact path="/birdpost/:id" render={() => <BirdPostPage/>} />
                 <Route render={() => <p>Page not found!</p>} />
               </Switch>
             </Container>
