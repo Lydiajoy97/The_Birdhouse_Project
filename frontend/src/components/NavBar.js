@@ -80,7 +80,7 @@ const NavBar = () => {
         <i className="fa-regular fa-id-card"></i>
       </NavLink>
       <NavLink 
-        to= "/bird-spot"
+        to= "/birdpost"
         className={styles.NavLink}
         activeClassName={styles.Active}
       > Bird house  
