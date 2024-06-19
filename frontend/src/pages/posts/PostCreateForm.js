@@ -26,9 +26,10 @@ function PostCreateFrom() {
     location:"",
     content:"",
     image:"",
-    catogries:"",
+    title: "",
+    catogries: "",
   });
-  const { name, location, content, image, catogries } = postData;
+  const { name, location, content, image, title, catogries } = postData;
 
   const imageInput = useRef(null)
   const history = useHistory()
@@ -89,6 +90,21 @@ function PostCreateFrom() {
           {message}
         </Alert>
       ))}
+            <Form.Group>
+        <Form.Label>Title</Form.Label>
+        <Form.Control 
+          type="text" 
+          placeholder="Post title" 
+          name="title"
+          value={title}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.name?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group className="mb-3" controlId="content">
         <Form.Label>Tell us about the bird you spotted</Form.Label>
         <Form.Control 
@@ -110,24 +126,9 @@ function PostCreateFrom() {
           placeholder="Help others to find it" 
           name="location"
           onChange={handleChange}
-          value={location}
+          value={location} 
         />
       </Form.Group>
-      {/* <Form.Select 
-        aria-label="Default select example" 
-        name="catorgies"
-        value={catogries}>
-        <option>What Type of Bird is it?</option>
-        <option value="1">Owl</option>
-        <option value="2">Albatross</option>
-        <option value="3">Hummingbird</option>
-        <option value="4">Passerine</option>
-        <option value="5">Chickens</option>
-        <option value="6">Budgies</option>
-        <option value="7">Swift</option>
-        <option value="8">Aquatic Birds</option>
-        <option value="8">Other/ Unsure</option>
-     </Form.Select> */}
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
