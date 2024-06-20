@@ -2,12 +2,9 @@ from rest_framework import serializers
 from birdpost.models import Birdpost
 
 class BirdpostSerializer(serializers.ModelSerializer):
-        # owner = serializers.ReadOnlyField(source='owner.username')
-        # is_owner = serializers.SerializerMethodField()
-        # profile_id = serializers.ReadOnlyField(source='owner.profile.id')
-        # like_id = serializers.SerializerMethodField()
-        # likes_count = serializers.ReadOnlyField()
-        # comments_count = serializers.ReadOnlyField()
+    class Meta:
+        model = Birdpost
+        fields = 'title', 'image', 'content',
 
     def get_is_owner(self, obj):
         request = self.context['request']
@@ -15,9 +12,3 @@ class BirdpostSerializer(serializers.ModelSerializer):
 
     def get_updated_at(self, obj):
         return naturaltime(obj.updated_at)
-
-    class Meta:
-        model = Birdpost
-        fields = [
-            'id','updated_at',
-            'title', 'content', 'image',]

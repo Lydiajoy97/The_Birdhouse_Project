@@ -7,6 +7,7 @@ class Category(models.Model):
 
 # Create your models here.
 class Birdpost(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     image = models.ImageField(
         upload_to='images/', default='../default_profile_qdjgyp'

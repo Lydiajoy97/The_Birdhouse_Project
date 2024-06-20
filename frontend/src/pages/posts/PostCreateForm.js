@@ -142,15 +142,15 @@ function PostCreateFrom() {
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
-        <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
+        <Col className="py-2 p-0 p-md-2" md={5} lg={8}>
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
-            <Form.Group className="text-center">
+            <Form.Group className="text-center" >
               {image ? (
                 <>
                   <figure>
-                    <Image className={appStyles.Image} src={image} />
+                    <Image className={appStyles.Image} src={image}  />
                   </figure>
                   <div>
                     <Form.Label
@@ -163,11 +163,11 @@ function PostCreateFrom() {
                 </>
               ) : (
                 <Form.Label
-                  className="d-flex justify-content-center"
+                  className="d-flex"
                   htmlFor="image-upload"
                 >
-                  <Asset className="pink-upload" 
-                    src={PinkUpload} 
+                  <Asset
+                    src={PinkUpload}
                     message="Upload a picture of your bird here"
                   />
                 </Form.Label>
