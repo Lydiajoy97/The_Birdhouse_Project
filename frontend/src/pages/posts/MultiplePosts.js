@@ -17,10 +17,12 @@ function ManyBirdPostsPage({ message, filter = "" }) {
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
 
+    const [query, setQuery] =useState("");
+
     useEffect(() => {
         const fetchBirdPost = async () => {
             try {
-                const {data} = await axiosReq.get(`/birdpost/${filter}`)
+                const {data} = await axiosReq.get(`/birdpost/?${filter}search=${query}`);
                 setPosts(data);
                 setHasLoaded(true);
             }catch (err) {
@@ -29,14 +31,32 @@ function ManyBirdPostsPage({ message, filter = "" }) {
         };
 
         setHasLoaded(false);
-        fetchBirdPost();
-    }, [filter, pathname]);
+        const timer = setTimeout(() => {
+            fetchBirdPost();   
+        }, 1000)
+        return () => {
+            clearTimeout(timer)
+        }
+    }, [filter, query, pathname]);
 
     //  from the Code Insitute moments walkthrough
     return (
         <Row className="h-100">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
-                <p>List of posts here</p>
+                <p>Search For your favorite bird or a spot to find them...</p>
+                <i className={`fas fa-search ${styles.SearchIcon} `} />
+                <Form 
+                    className={styles.SearchBar}
+                    onSubmit={(event) => event.preventDefault()}
+                >
+                    <Form.Control
+                        value={query}
+                        onChange={(event) => setQuery(event.target.value)}
+                        type="text"
+                        className="mr-sm-2"
+                        placeholder="Search Posts"
+                    />
+                </Form>
                 {hasLoaded ? (
                     <>
                     {posts.results.length ? (

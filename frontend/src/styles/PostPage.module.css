@@ -2,19 +2,19 @@
 
 .SearchBar input {
     border-radius: 10px;
-    color: azure;
+    color: rgb(208, 207, 242);
     padding-left: 40px;
     margin-bottom: 16px;
 }
 
 .SearchIcon {
     position: absolute;
-    font-size: 2rem;
+    font-size: 1rem;
     padding: 9px;
     padding-left: 15px;
 }
 
 .SearchIcon:hover {
     cursor: default;
-    color: aquamarine;
+    color: rgb(243, 151, 252);
 }
