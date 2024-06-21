@@ -61,7 +61,7 @@ const Post = (props)  => {
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {content && <Card.Text>{content}</Card.Text>}
         <div className={styles.PostBar}>
-          {is_owner ? (
+          {/* {is_owner ? (
             <OverlayTrigger
               placement="top"
               overlay={<Tooltip>You can't like your own post!</Tooltip>}
@@ -84,7 +84,7 @@ const Post = (props)  => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           )}
-          {likes_count}
+          {likes_count} */}
           <Link to={`/posts/${id}`}>
             <i className="far fa-comments" />
           </Link>
