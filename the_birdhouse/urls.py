@@ -29,6 +29,7 @@ urlpatterns = [
 
     path('', include('birdpost.urls')),
     path('', include('profiles.urls')),
+    path('', include('comments.urls')),
 ]
 
 handler404 = TemplateView.as_view(template_name='index.html')
