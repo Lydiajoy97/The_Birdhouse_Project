@@ -5,7 +5,7 @@ from birdpost.models import Birdpost
 class BirdpostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Birdpost
-        fields = 'title', 'image', 'content',
+        fields = 'title', 'image', 'content', 'location', 'id',
 
     def get_is_owner(self, obj):
         request = self.context['request']

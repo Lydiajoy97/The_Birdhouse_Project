@@ -20,9 +20,9 @@ function ManyBirdPostsPage({ message, filter = "" }) {
     useEffect(() => {
         const fetchBirdPost = async () => {
             try {
-                const {data} = await axiosReq.get(`/birdpost/?${filter}`)
-                    setPosts(data);
-                    setHasLoaded(true);
+                const {data} = await axiosReq.get(`/birdpost/${filter}`)
+                setPosts(data);
+                setHasLoaded(true);
             }catch (err) {
                 console.log(err);
             }
@@ -39,9 +39,9 @@ function ManyBirdPostsPage({ message, filter = "" }) {
                 <p>List of posts here</p>
                 {hasLoaded ? (
                     <>
-                    {posts.results.lenght ? (
+                    {posts.results.length ? (
                         posts.results.map(posts => (
-                           < Post key={posts.id} {...posts} />
+                           <Post key={posts.id} {...posts} />
                         ))
                     ) : ( 
                         console.log('show my results asset')
