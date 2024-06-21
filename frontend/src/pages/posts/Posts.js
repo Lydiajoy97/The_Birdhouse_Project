@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "../../styles/Posts.module.css";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Card, Media, } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
-// import Avatar from "../../components/Avatar"
+import { PostDropdown } from "../../components/PostDropdown";
 
 const Post = (props)  => {
     const {
@@ -13,14 +13,29 @@ const Post = (props)  => {
         profile_id,
         title,
         content, 
+        location,
         image, 
-        updated_at, 
         comments_count,
         BirdPostPage,
     } = props;
     
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner
+    const history = useHistory();
+
+    const handleEdit = () => {
+        history.push(`/posts/${id}/edit`)
+    }
+
+    const handleDelete = async () => {
+        try {
+            await axiosRes.delete(`posts/${id}/`);
+            history.goBack();
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
 
     return <Card className={styles.Post}>
         <Card.Body>
@@ -29,24 +44,30 @@ const Post = (props)  => {
                     {owner}
                 </Link>
                 <div className="d-flex align-items-center">
-                    <span>{updated_at}</span>
-                    {is_owner && BirdPostPage && "..."}
+                    {is_owner && BirdPostPage && (
+                        <PostDropdown 
+                            handleEdit={handleEdit}
+                            handleDelete={handleDelete}
+                        /> 
+                    )}
                 </div>
             </Media>
         </Card.Body>
-        <Link>
+        <Card.Text></Card.Text>
+        <Link to={`/posts/${id}`}>
            <Card.Img src={image} alt={title} />
         </Link>
         <Card.Body>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {content && <Card.Text>{content}</Card.Text>}
-        <div className={styles.PostBar}>
+               {title && <Card.Title className="text-center">{title}</Card.Title>}
+               {content && <Card.Text>{content}</Card.Text>}
+               {location && <Card.Text>{location}</Card.Text>}
+            <div className={styles.PostBar}>
           <Link to={`/posts/${id}`}>
             <i className="far fa-comments" />
           </Link>
           {comments_count}
-        </div>
-      </Card.Body>
+          </div>
+        </Card.Body>
     </Card>
 };
 

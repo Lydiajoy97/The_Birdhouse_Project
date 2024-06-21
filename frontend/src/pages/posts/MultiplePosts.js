@@ -3,16 +3,13 @@ import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { Container } from "react-bootstrap";
-
-import appstyles from "../../App.module.css";
 import styles from "../../styles/PostPage.module.css";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Posts";
 
 
-function ManyBirdPostsPage({ message, filter = "" }) {
+function ManyBirdPostsPage({filter = "" }) {
     const [posts, setPosts] = useState({results:[]});
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
@@ -70,9 +67,6 @@ function ManyBirdPostsPage({ message, filter = "" }) {
                 ) : ( 
                     console.log('show loading spinner')
                 )}
-            </Col>
-            <Col md={4} className="d-None d-lg-block p-0 p-lg-2">
-                <p>Placeholder text</p>
             </Col>
         </Row>
 
