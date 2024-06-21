@@ -1,7 +1,8 @@
 from django.db.models import Count
 from rest_framework import generics, permissions, filters
+from django_filters.rest_framework import DjangoFilterBackend
 from .models import Birdpost
-from birdpost.serializers import BirdpostSerializer
+from .serializers import BirdpostSerializer
 from the_birdhouse.permissions import IsOwnerOrReadOnly
 
 # Code written from django rest framework walkthrough
@@ -14,7 +15,11 @@ class BirdpostList(generics.ListCreateAPIView):
     ).order_by('-updated_at')
     filter_backends = [
         filters.OrderingFilter,
-        filters.SearchFilter, 
+        filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+    filterset_fields = [
+        'owner__profile',
     ]
     search_fields = [
         'owner__username',

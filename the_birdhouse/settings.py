@@ -106,6 +106,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
+    'django_filters', 
     'rest_framework.authtoken',
     'dj_rest_auth',
     'allauth',
@@ -113,7 +114,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'dj_rest_auth.registration',
     'corsheaders',
-
+    
     'birdpost',
     'profiles',
     'comments',
