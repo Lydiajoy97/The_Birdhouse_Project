@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 # Built using code institute django rest framework walkthrough
 class Profile(models.Model):
-    person = models.OneToOneField(User, on_delete=models.CASCADE)
+    owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name='name')
     display_name = models.CharField(max_length=255, blank=True)
     about_me = models.TextField(blank=True)
     image = models.ImageField(

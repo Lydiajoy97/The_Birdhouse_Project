@@ -1,42 +1,27 @@
-from django.http import Http404
-from rest_framework import status
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from django.db.models import Count
+from rest_framework import generics, filters
+from django_filters.rest_framework import DjangoFilterBackend
+from the_birdhouse.permissions import IsOwnerOrReadOnly
 from .models import Profile
 from .serializer import ProfileSerializer
-from the_birdhouse.permissions import IsOwnerOrReadOnly
-
 
 # From code insitutes Django rest framework walkthrough
-class ProfileList(APIView):
-    def get(self, request):
-        profiles = Profile.objects.all()
-        serializer = ProfileSerializer(profiles, many=True)
-        return Response(serializer.data)
-
-class ProfileDetail(APIView):
-    profiles = Profile.objects.all()
+class ProfileList(generics.ListAPIView):
+    queryset = Profile.objects.annotate (
+        posts_count=Count('owner__name', distinct=True)
+    ).order_by('-updated_at')
     serializer_class = ProfileSerializer
+    filter_backends = [
+        filters.OrderingFilter,
+        DjangoFilterBackend,
+    ]
+    filterset_fields = [
+        'owner__profile',
+    ]
+
+class ProfileDetail(generics.RetrieveUpdateAPIView):
     permission_classes = [IsOwnerOrReadOnly]
-
-    def get_object(self, pk):
-        try:
-            profile = Profile.objects.get(pk=pk)
-            return profile
-        except Profile.DoesNotExist:
-            raise Http404
-    
-    def get(self, request, pk):
-        profile = self.get_object(pk)
-        self.check_object_permissions(self.request, profile)
-        serializer = ProfileSerializer(profile)
-        return Response(serializer.data)
-
-
-    def put(self, request, pk):
-        profile = self.get_object(pk)
-        serializer = ProfileSerializer(profile, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    queryset = Profile.objects.annotate(
+        posts_count=Count('owner__displayname',distint=True)
+    ).order_by('updated_at')
+    serializer_class = ProfileSerializer

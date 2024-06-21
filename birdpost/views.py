@@ -11,7 +11,7 @@ class BirdpostList(generics.ListCreateAPIView):
     serializer_class = BirdpostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Birdpost.objects.annotate(
-        comments_count= Count('comment', distinct=True)
+        posts_count=Count('owner__displayname', distinct=True)
     ).order_by('-updated_at')
     filter_backends = [
         filters.OrderingFilter,
@@ -19,16 +19,16 @@ class BirdpostList(generics.ListCreateAPIView):
         DjangoFilterBackend,
     ]
     filterset_fields = [
-        'owner__profile',
-    ]
-    search_fields = [
-        'owner__username',
-        'title',
+        'content',
         'location',
     ]
-    ordering_fields = [
-        'comments_count'
+    search_fields = [
+        'content',
+        'location',
     ]
+    # ordering_fields = [
+    #     'comments_count',
+    # ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -38,7 +38,7 @@ class BirdpostDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = BirdpostSerializer
     queryset = Birdpost.objects.annotate(
-        comments_count = Count('comment', distinct=True)
+        posts_count = Count('owner__displayname', distinct=True)
     ).order_by('-updated_at')
 
     
