@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from birdpost.models import Birdpost
 
+# from Youtube video
 class BirdpostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Birdpost

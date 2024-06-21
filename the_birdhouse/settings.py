@@ -116,6 +116,7 @@ INSTALLED_APPS = [
 
     'birdpost',
     'profiles',
+    'comments',
 ]
 SITE_ID = 1
 MIDDLEWARE = [
