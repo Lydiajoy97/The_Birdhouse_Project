@@ -8,6 +8,7 @@ import SignInForm from "./pages/auth/signin";
 import PostCreateFrom from "./pages/posts/PostCreateForm"
 import BirdPostPage from "./pages/posts/BirdPostPage";
 import ManyBirdPostsPage from "./pages/posts/MultiplePosts";
+import BirdPostEditForm from "./pages/posts/BirdPostEditForm";
 
 /* Built using Code insitute walkthrough*/
 function App() { 
@@ -17,12 +18,13 @@ function App() {
           <NavBar />
             <Container className={styles.Main}>
               <Switch>
-                <Route exact path="/" render={() => <h1> Home page </h1>} />
+                <Route exact path="/" render={() => <h1> Welcome to the BirdHouse! </h1>} />
                 <Route exact path="/birdhouse" render={() => <ManyBirdPostsPage/>}/>
                 <Route exact path="/signup"  render={() => <AccountCreation/>} />
                 <Route exact path="/signin" render={() => <SignInForm/>} />
                 <Route exact path="/posts/create" render={() => <PostCreateFrom/>} />
                 <Route exact path="/birdpost/:id" render={() => <BirdPostPage/>} />
+                <Route exact path="/posts/:id/edit" render={() => <BirdPostEditForm />} />
                 <Route render={() => <p>Page not found!</p>} />
               </Switch>
             </Container>
