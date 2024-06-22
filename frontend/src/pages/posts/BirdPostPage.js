@@ -29,9 +29,7 @@ function BirdPostPage() {
           ]);
           setPost({ results: [post] });
           setComments(comments);
-          console.log('post', post);
         } catch(err) {
-            console.log(err);
     }
   }; 
 

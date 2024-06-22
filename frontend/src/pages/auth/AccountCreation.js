@@ -31,13 +31,11 @@ const AccountCreation = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log(signingInFormData)
       await axios.post("dj-rest-auth/registration/", signingInFormData)
       history.push("/birdpost");
     } catch (err) {
       setErrors(err.response?.data);
     }
-    console.log()
   };
 
   return (

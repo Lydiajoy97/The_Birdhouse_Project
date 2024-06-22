@@ -65,7 +65,6 @@ function PostCreateFrom() {
       const { data } =await axiosReq.post('/birdpost/', formData);
        history.push(`/birdpost/${data.id}`);
       } catch(err){ 
-        console.log(err)
         if (err.response?.status !== 401) {
          setErrors(err.response?.data)
       }
