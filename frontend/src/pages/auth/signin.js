@@ -9,7 +9,7 @@ import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
-/* From Code Insitute walkthrough */
+/* From Code Insitute walkthrough and bootstrap forms */
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
