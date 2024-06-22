@@ -51,8 +51,23 @@ function BirdPostPage() {
               setComments={setComments}
             />
             ) : comments.results.length ? (
-              "Comments"
-            ) : null }
+                "Comments"
+            ) : null} 
+            {comments.results.length ? (
+              comments.results.map((comment) => (
+                 <Comment 
+                  key={comments.id} 
+                  {...comment}
+                  setPost={setPost} 
+                  setComments={setComments}
+                />
+              ))
+            ) : currentUser ? (
+              <span>Be the first one to comment!</span>
+            ) : (
+              <span>No comments yet!</span>
+            )}
+             
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
