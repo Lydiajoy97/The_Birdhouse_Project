@@ -174,7 +174,6 @@ function PostCreateFrom() {
                 </Form.Label>
               )}
               
-
               <Form.File 
                 id="image-upload" 
                 accept="image/*"

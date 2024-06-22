@@ -1,11 +1,11 @@
-import React from 'react';
 import React, { useState } from "react";
 import styles from "../../styles/Comment.module.css"
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { PostDropdown } from '../../components/PostDropdown';
-import EditComments from "./CommentEditForm";
+import EditComments from "./EditComments";
+import { Media } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosRes } from '../../api/axiosDefaults';
 
 // From moments walkthrough
@@ -46,7 +46,7 @@ const Comment = (props) => {
                   <span className={styles.Owner}>{owner}</span>
                   <span className={styles.Date}>{updated_at}</span>
                   {showEditForm ? (
-                    <CommentEditForm
+                    <EditComments
                       id={id}
                       profile_id={profile_id}
                       content={content}

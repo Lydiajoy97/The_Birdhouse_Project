@@ -8,6 +8,7 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Posts";
+import Comment from "../comments/Comments";
 
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -24,10 +25,11 @@ function BirdPostPage() {
         try {
           const [{ data: post }] = await Promise.all([
             axiosReq.get(`/birdpost/${id}`),
+            axiosReq.get(`/comments/?birdpost=${id}`),
           ]);
-          setPost({results: [post] });
-          setComments(comments)
-          console.log(post);
+          setPost({ results: [post] });
+          setComments(comments);
+          console.log('post', post);
         } catch(err) {
             console.log(err);
     }
@@ -55,7 +57,7 @@ function BirdPostPage() {
             ) : null} 
             {comments.results.length ? (
               comments.results.map((comment) => (
-                 <Comment 
+                 <Comment
                   key={comments.id} 
                   {...comment}
                   setPost={setPost} 

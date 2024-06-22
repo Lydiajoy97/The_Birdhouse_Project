@@ -36,6 +36,7 @@ const Post = (props)  => {
         }
     };
 
+    console.log('is_owner', is_owner)
 
     return <Card className={styles.Post}>
         <Card.Body>

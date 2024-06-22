@@ -73,7 +73,8 @@ Testing Results:
 I created a new instance on ElephantSQL and copied the API key into the env.py file. 
 
 - Heroku
-To deploy to Heroku I logged into my accound and created a new app. In Settings I clicked deploy. I then connected this to my gitpod repository and set the config vars. I then deployed mmy branch and run the app.
+To deploy to Heroku I logged into my accound and created a new app. In Settings I clicked deploy. I then connected this to my gitpod repository and set the config vars. I then deployed mmy branch and run the app. This was to deploy the backend api first, and it then was able to display the veiws. 
+To display my react app in the deployed version I need my veiw to render my index.html page.
 
 - React 
 To create the react app I set up a frontend folder within my project. In the frontend folder I installed react using the npx create-react-app command. 

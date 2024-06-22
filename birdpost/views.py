@@ -26,10 +26,7 @@ class BirdpostList(generics.ListCreateAPIView):
         'content',
         'location',
     ]
-    # ordering_fields = [
-    #     'comments_count',
-    # ]
-
+    
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
