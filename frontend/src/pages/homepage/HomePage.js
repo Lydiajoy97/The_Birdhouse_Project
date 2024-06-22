@@ -1,9 +1,7 @@
 import React from 'react';
 import Robin from "../../assets/Robin.jpg";
-import { Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import appStyles from "../../App.module.css";
-import styles from "../../styles/HomePage.module.css"
+
+// From https://cloudinary.com/guides/web-performance/5-ways-to-import-images-in-react-bonus-automation-method
 
 const HomePage = () => {
     return (
