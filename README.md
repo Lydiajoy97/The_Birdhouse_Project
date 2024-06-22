@@ -2,7 +2,7 @@
 
 * [**Project Brief**](#Project-Brief)
 The Birdhouse is a platform were users can upload pictures of birds they have spotted. They can post where they have found them which helps other users to spot birds. 
-This is to create a place 
+This is to create an online community where people feel safe. This forum will also help boost the users mental health and welbeing by encouraging eachother to go out and spot birds and share the joy with other users.
 
 # **TABLE OF Contents**
 
@@ -32,9 +32,8 @@ This is to create a place
 - Create an account and profiles
 - Log in and log out buttons and functions
 - Post bird pictures and content 
-- Like posts
 - Comment on others posts 
-- Delete own posts and profiles
+- Delete own posts and comments
 
 # Structure-Plan:
 - API structure 
@@ -44,16 +43,20 @@ This is to create a place
 
 # Design-and-Color-Scheme
 
+
 # Frontend Wireframes
-![image]('frontend/src/images/documentation1')
-![image]('frontend/src/images/documentation2')
-![image]('frontend/src/images/documentation3')
-![image]('frontend/src/images/documentation4')
+![image]('frontend/src/assests/homepage.png')
+![image]('frontend/src/assests/signin.png')
+![image]('frontend/src/assests/profile.png')
 
 # Future developments 
 - One future development is to have a meet up page where users can arrange a spot to meet up and book a place. There will be an interactive map feature and bookings form. This is the build on the community they have found through the bird spotting page. 
 
-- Another future development is for the user to vote for their favorite bird picture. They can click on the picture and award it one point. Users will be able to see how many votes each bird has. The winner will have their bird picture displayed on the main page.
+- Another feature development is to add a react-bootstrap carosel on the home page. This will add to user experience and the overall look of the website. 
+
+- I would also like to add a likes feature so that the users can like eachothers posts. 
+
+- Another future development is to create the profiles page where a user can update and delete thier profile.
 
 # Testing-and-Results 
 Strategy:
