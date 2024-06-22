@@ -106,6 +106,9 @@ https://www.youtube.com/watch?v=TmsD8QExZ84&t=974s
 
 https://pypi.org/project/django-filter/
 
+https://flaviocopes.com/axios-send-authorization-header/
+
+https://stackoverflow.com/questions/70945123/how-can-i-add-a-image-on-a-post-in-django#:~:text=ImageField(upload_to%3D%22%2Fmedia,code%20should%20be%20like%20this.
 
 
 For the bird images:
