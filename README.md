@@ -74,6 +74,8 @@ A user can edit their post straight after posting, but not once they have naviga
 
 There is also a style issue on the account creation page that I will fix in a future development.
 
+I received 1 warning in Eslint with the missing dependacy 'comments' error. I tried to fix this issue but it remains unresolved.
+
 # Deployment 
 - ElephantSQL
 I created a new instance on ElephantSQL and copied the API key into the env.py file. 
