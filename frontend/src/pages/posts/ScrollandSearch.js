@@ -6,8 +6,7 @@ import Row from "react-bootstrap/Row";
 import styles from "../../styles/PostPage.module.css";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
-import Post from "./Posts";
-
+import Post from "./BirdPosts";
 
 function ManyBirdPostsPage({filter = "" }) {
     const [posts, setPosts] = useState({results:[]});

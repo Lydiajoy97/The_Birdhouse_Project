@@ -7,7 +7,7 @@ import AccountCreation from "./pages/auth/AccountCreation";
 import SignInForm from "./pages/auth/signin";
 import PostCreateFrom from "./pages/posts/PostCreateForm"
 import BirdPostPage from "./pages/posts/BirdPostPage";
-import ManyBirdPostsPage from "./pages/posts/MultiplePosts";
+import ScrollandSearch from "./pages/posts/ScrollandSearch";
 import BirdPostEditForm from "./pages/posts/BirdPostEditForm";
 import HomePage from "./pages/homepage/HomePage";
 
@@ -20,7 +20,7 @@ function App() {
             <Container className={styles.Main}>
               <Switch>
                 <Route exact path="/" render={() => <HomePage/>} />
-                <Route exact path="/birdhouse" render={() => <ManyBirdPostsPage/>}/>
+                <Route exact path="/birdhouse" render={() => <ScrollandSearch/>}/>
                 <Route exact path="/signup"  render={() => <AccountCreation/>} />
                 <Route exact path="/signin" render={() => <SignInForm/>} />
                 <Route exact path="/posts/create" render={() => <PostCreateFrom/>} />

@@ -6,6 +6,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import { PostDropdown } from "../../components/PostDropdown";
 
+
 const Post = (props)  => {
     const {
         id, 
@@ -16,11 +17,10 @@ const Post = (props)  => {
         location,
         image, 
         comments_count,
-        BirdPostPage,
     } = props;
     
     const currentUser = useCurrentUser();
-    const is_owner = currentUser?.username === owner
+    const is_owner = currentUser?.username === owner;
     const history = useHistory();
 
     const handleEdit = () => {
@@ -36,8 +36,6 @@ const Post = (props)  => {
         }
     };
 
-    console.log('is_owner', is_owner)
-
     return <Card className={styles.Post}>
         <Card.Body>
             <Media className= "align-items-center justify-content-between">
@@ -45,12 +43,12 @@ const Post = (props)  => {
                     {owner}
                 </Link>
                 <div className="d-flex align-items-center">
-                    {is_owner && BirdPostPage && (
+        
                         <PostDropdown 
                             handleEdit={handleEdit}
                             handleDelete={handleDelete}
                         /> 
-                    )}
+    
                 </div>
             </Media>
         </Card.Body>
@@ -62,8 +60,8 @@ const Post = (props)  => {
                {title && <Card.Title className="text-center">{title}</Card.Title>}
                {content && <Card.Text>{content}</Card.Text>}
                {location && <Card.Text>{location}</Card.Text>}
-            <div className={styles.PostBar}>
-          <Link to={`/posts/${id}`}>
+            <div className={styles.PostBar}>     
+          <Link to={`/birdposts/${id}`}>
             <i className="far fa-comments" />
           </Link>
           {comments_count}
