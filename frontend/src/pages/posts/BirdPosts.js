@@ -43,12 +43,10 @@ const Post = (props)  => {
                     {owner}
                 </Link>
                 <div className="d-flex align-items-center">
-        
                         <PostDropdown 
                             handleEdit={handleEdit}
                             handleDelete={handleDelete}
-                        /> 
-    
+                        />
                 </div>
             </Media>
         </Card.Body>
@@ -61,7 +59,7 @@ const Post = (props)  => {
                {content && <Card.Text>{content}</Card.Text>}
                {location && <Card.Text>{location}</Card.Text>}
             <div className={styles.PostBar}>     
-          <Link to={`/birdposts/${id}`}>
+          <Link to={`/posts/${id}`}>
             <i className="far fa-comments" />
           </Link>
           {comments_count}
