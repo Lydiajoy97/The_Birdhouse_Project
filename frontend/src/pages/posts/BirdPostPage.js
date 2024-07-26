@@ -58,10 +58,12 @@ function BirdPostPage() {
                 <Comment
                   key={comment.id} 
                   {...comment}
+                  setPost={setPost}
+                  setComments={setComments}
                 />
               ))
             ) : currentUser ? (
-              <span>Be the first one to comment!</span>
+              <span>Write your comments here!</span>
             ) : (
               <span>No comments yet!</span>
             )}
