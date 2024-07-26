@@ -29,7 +29,7 @@ const Post = (props)  => {
 
     const handleDelete = async () => {
         try {
-            await axiosRes.delete(`/posts/${id}/`);
+            await axiosRes.delete(`/birdpost/${id}/`);
             history.goBack();
         } catch (err) {
             console.log(err);
