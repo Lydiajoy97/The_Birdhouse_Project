@@ -23,7 +23,7 @@ function BirdPostPage() {
   useEffect(() => {
     const handleMount = async () => {
         try {
-          const [{ data: post }] = await Promise.all([
+          const [{ data: post }, { data: comments }] = await Promise.all([
             axiosReq.get(`/birdpost/${id}`),
             axiosReq.get(`/comments/?birdpost=${id}`),
           ]);
@@ -55,11 +55,9 @@ function BirdPostPage() {
             ) : null} 
             {comments.results.length ? (
               comments.results.map((comment) => (
-                 <Comment
-                  key={comments.id} 
+                <Comment
+                  key={comment.id} 
                   {...comment}
-                  setPost={setPost} 
-                  setComments={setComments}
                 />
               ))
             ) : currentUser ? (
