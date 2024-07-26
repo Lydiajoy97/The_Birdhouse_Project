@@ -43,10 +43,12 @@ const Post = (props)  => {
                     {owner}
                 </Link>
                 <div className="d-flex align-items-center">
+                    {is_owner && (
                         <PostDropdown 
                             handleEdit={handleEdit}
                             handleDelete={handleDelete}
                         />
+                    )}
                 </div>
             </Media>
         </Card.Body>

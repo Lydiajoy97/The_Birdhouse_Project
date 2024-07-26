@@ -5,9 +5,9 @@ import styles from "../styles/Dropdown.module.css"
 // CustomToggle from React bootstrap 
 // From Code Inistute moments walkthrough
 
-const CustomToggle = React.forwardRef(({ onClick }, ref) => (
+const Menu = React.forwardRef(({ onClick }, ref) => (
     <i
-        className="fas fa-ellipsis-v"
+        class="fa-solid fa-bars"
         ref={ref}
         onClick={(e) => {
             e.preventDefault();
@@ -19,7 +19,7 @@ const CustomToggle = React.forwardRef(({ onClick }, ref) => (
 export const PostDropdown = ({handleEdit, handleDelete}) => {
     return (
         <Dropdown className="ml-auto" drop="left">
-            <Dropdown.Toggle as={CustomToggle} />
+            <Dropdown.Toggle as={Menu} />
     
             <Dropdown.Menu  className="text-center" propperConfig={{strategy: "fixed"}}>
                 <Dropdown.Item className={styles.DropdownItem}
@@ -32,7 +32,7 @@ export const PostDropdown = ({handleEdit, handleDelete}) => {
                     onClick={handleDelete}
                     aria-label = "delete"
                 >
-                    <i className="fas fa-edit" />
+                    <i class="fa-solid fa-eraser"></i>
                 </Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
