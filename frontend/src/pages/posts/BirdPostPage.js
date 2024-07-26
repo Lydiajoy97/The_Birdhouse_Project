@@ -25,7 +25,7 @@ function BirdPostPage() {
         try {
           const [{ data: post }, { data: comments }] = await Promise.all([
             axiosReq.get(`/birdpost/${id}`),
-            axiosReq.get(`/comments/?birdpost=${id}`),
+            axiosReq.get(`/comments/?post=${id}`),
           ]);
           setPost({ results: [post] });
           setComments(comments);
@@ -41,7 +41,7 @@ function BirdPostPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p></p>
-        <Post {...post.results[0]} setPost={setPost} birdPostPage />
+        <Post {...post.results[0]} setPosts={setPost} birdPostPage />
         <Container className={appStyles.Content}>
           {currentUser ? (
             <CommentCreateForm
