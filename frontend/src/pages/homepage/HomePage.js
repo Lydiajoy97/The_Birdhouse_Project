@@ -1,6 +1,7 @@
 import React from 'react';
 import Robin from "../../assets/Robin.jpg";
 import { Container } from 'react-bootstrap';
+import Image from 'react-bootstrap/Image'
 
 // From https://cloudinary.com/guides/web-performance/5-ways-to-import-images-in-react-bonus-automation-method
 // Image size from https://reactnative.dev/docs/image-style-props 
@@ -8,12 +9,7 @@ import { Container } from 'react-bootstrap';
 const HomePage = () => {
     return (
       <Container>
-        <img
-            style={{ 
-              resizeMode: 'cover',
-              height: 900,
-              width: 1100,
-            }} className='robin-img' src={Robin} alt="Robin in a tree" />
+        <Image className='robin-img' src={Robin} alt="Robin in a tree" fluid />
       </Container>
     );
   };
