@@ -6,7 +6,7 @@ import Robin from "../../assets/Robin.jpg";
 const HomePage = () => {
     return (
       <div>
-        <img src={Robin} alt="Robin in a tree" />
+        <img  src={Robin} alt="Robin in a tree" />
       </div>
     );
   };

@@ -10,6 +10,7 @@ import BirdPostPage from "./pages/posts/BirdPostPage";
 import ScrollandSearch from "./pages/posts/ScrollandSearch";
 import BirdPostEditForm from "./pages/posts/BirdPostEditForm";
 import HomePage from "./pages/homepage/HomePage";
+import Profile from "./pages/profile/Profile";
 
 /* Built using Code insitute walkthrough*/
 function App() { 
@@ -27,6 +28,7 @@ function App() {
                 <Route exact path="/posts/:id" render={() => <BirdPostPage/>} />
                 <Route exact path="/posts/:id/edit" render={() => <BirdPostEditForm />} />
                 <Route exact path="/birdpost/:id" render={() => <BirdPostPage />} />
+                <Route exact path="/profiles" render={() => <Profile />} />
                 <Route render={() => <p>Page not found!</p>} />
               </Switch>
             </Container>
