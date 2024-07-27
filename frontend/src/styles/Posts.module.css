@@ -11,15 +11,3 @@
   h5 {
     margin: 0 0;
   }
-  
-  .Heart {
-    color: #df19b4c5;
-  }
-  
-  .Heart:hover {
-    color: #e15fb6;
-  }
-  
-  .HeartOutline:hover {
-    color: #f3cde4;
-  }
