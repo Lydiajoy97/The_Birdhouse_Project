@@ -130,3 +130,14 @@ https://pixabay.com/photos/bird-bath-splashing-bird-in-bath-5290285/
 https://pixabay.com/photos/blue-tit-tit-bird-animal-feathers-7965696/ 
 
 https://pixabay.com/photos/bird-animal-nature-wildlife-plant-7310393/ 
+
+
+For bird dropdown component:
+
+https://dev.to/antdp425/populate-dropdown-options-in-react-1nk0
+
+https://stackoverflow.com/questions/31130706/dropdown-in-django-model
+
+https://docs.djangoproject.com/en/5.0/ref/models/fields/#:~:text=choices%20is%20meant%20for%20static,t%20change%20much%2C%20if%20ever.&text=A%20new%20migration%20is%20created,for%20the%20field's%20current%20value.
+
+https://react-bootstrap.netlify.app/docs/forms/select/
