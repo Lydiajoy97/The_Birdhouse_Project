@@ -2,8 +2,14 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Category model from realpython.com 
-class Category(models.Model):
-    name = models.CharField(max_length=30)
+BIRD_CHOICES = (
+    ('owl','OWL'),
+    ('eagle', 'EAGLE'),
+    ('heron','HERON'),
+    ('passerine','PASSERINE'),
+    ('other','OTHER'),
+    ('unknown','UNKNOWN'),
+)
 
 # Create your models here.
 class Birdpost(models.Model):
@@ -14,5 +20,6 @@ class Birdpost(models.Model):
     )
     location = models.TextField(blank=True)
     content = models.TextField(blank=True)
+    Type_of_bird = models.CharField(max_length=60, choices=BIRD_CHOICES, default='unknown')
     updated_at = models.DateTimeField(auto_now=True)
     uploaded_by = models.CharField(max_length=255, default='name')

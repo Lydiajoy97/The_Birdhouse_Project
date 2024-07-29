@@ -11,7 +11,6 @@ const Post = (props)  => {
     const {
         id, 
         owner, 
-        profile_id,
         title,
         content, 
         location,

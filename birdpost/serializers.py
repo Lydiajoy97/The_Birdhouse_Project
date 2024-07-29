@@ -29,4 +29,4 @@ class BirdpostSerializer(serializers.ModelSerializer):
         
     class Meta:
         model = Birdpost
-        fields = 'title', 'image', 'content', 'location', 'id', 'owner', 'updated_at', 'is_owner','profile_id',
+        fields = 'title', 'image', 'content', 'location', 'id', 'owner', 'updated_at', 'is_owner','profile_id', 'Type_of_bird',

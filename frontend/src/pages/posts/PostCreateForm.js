@@ -18,6 +18,7 @@ import Asset from "../../components/Assets";
 
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import BirdDropdown from "../../components/BirdDropdown";
 
 function PostCreateFrom() {
   const [errors, setErrors] = useState({});
@@ -28,8 +29,9 @@ function PostCreateFrom() {
     content:"",
     image:"",
     title: "",
+    Type_of_bird: "",
   });
-  const { name, location, content, image, title, } = postData;
+  const { name, location, content, image, title, Type_of_bird } = postData;
 
   const imageInput = useRef(null)
   const history = useHistory()
@@ -59,6 +61,7 @@ function PostCreateFrom() {
       formData.append('title', title);
       formData.append('content', content);
       formData.append('location', location);
+      formData.append('Type_of_bird', Type_of_bird);
       formData.append('image', imageInput.current.files[0]);
   
       try {
@@ -126,6 +129,9 @@ function PostCreateFrom() {
           onChange={handleChange}
           value={location} 
         />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="Categories">
+        <BirdDropdown />
       </Form.Group>
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
