@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { useRedirect } from "../../hooks/useRedirect";
 
 import styles from "../../styles/AccountCreation.module.css";
 import appStyles from "../../App.module.css";
@@ -9,6 +10,7 @@ import axios from "axios";
 /* From bootstrap and code insitute walkthrough */
 
 const AccountCreation = () => {
+  useRedirect("loggedIn");
   const [signingInFormData, setSignUpData] = useState({
     username: "",
     emailaddress: "",
@@ -31,8 +33,8 @@ const AccountCreation = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("dj-rest-auth/registration/", signingInFormData)
-      history.push("/birdpost");
+      await axios.post("dj-rest-auth/registration/", signingInFormData);
+      history.push("/signin");
     } catch (err) {
       setErrors(err.response?.data);
     }
