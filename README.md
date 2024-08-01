@@ -6,7 +6,7 @@ This is to create an online community where people feel safe. This forum will al
 
 # **TABLE OF Contents**
 
-* [**User Experience** ](#User-experienceX)
+* [**User Experience** ](#User-experience)
 * [**User Stories**](#User-Stories)
 * [**Wireframes** ](#Wireframes)
 * [**Surface-plan**](#Surface-plan)
@@ -37,17 +37,18 @@ This is to create an online community where people feel safe. This forum will al
 
 # Structure-Plan:
 - API structure 
+![Models](https://res.cloudinary.com/dddbuwhyg/image/upload/v1722517344/Screenshot_2024-08-01_140209_l775wf.png)
 
 - Frontend Flowchart 
-![flowchart]()
+![flowchart](https://res.cloudinary.com/dddbuwhyg/image/upload/v1722516945/Screenshot_2024-08-01_135528_xeubpd.png)
 
 # Design-and-Color-Scheme
-
+![ColorScheme](https://res.cloudinary.com/dddbuwhyg/image/upload/v1722516533/Screenshot_2024-06-22_081217_xuukdr.png)
 
 # Frontend Wireframes
-![Documentation1]('documentation1.png')
-![Documentation2]('documentation2.png')
-![Documentation3]('documentation3.png')
+![Documentation1](https://res.cloudinary.com/dddbuwhyg/image/upload/v1722500841/documentation1.png)
+![Documentation2](https://res.cloudinary.com/dddbuwhyg/image/upload/v1722500852/documentation2.png)
+![Documentation3](https://res.cloudinary.com/dddbuwhyg/image/upload/v1722500863/documentation3.png)
 
 # Future developments 
 - One future development is to have a meet up page where users can arrange a spot to meet up and book a place. There will be an interactive map feature and bookings form. This is the build on the community they have found through the bird spotting page. 
@@ -64,23 +65,37 @@ This is to create an online community where people feel safe. This forum will al
 Strategy:
 Much of the testing has been done during devlopment such as the back-end testing. My Api connects to my frontend and I am able to minipulate data. I can veiw my admin console and edit and delete posts on there. 
 
-
 Testing Results:
  You can veiw my testing results here:
-![testing](https://docs.google.com/document/d/15OvMF0vv1gsvvdaXJHcA-6Pp0M1fpKidckkbuRtrGvM/edit)
 
+https://docs.google.com/document/d/15OvMF0vv1gsvvdaXJHcA-6Pp0M1fpKidckkbuRtrGvM/edit
 
-# Deployment 
+One error that I ran into was that my drowpdown menu on the createbirdpost page was that I hadn't set setters and used a function instead. To make this work I changed const [bird] to [setBird].
+
+There was also a CSS error on the image for creating a new post because I hadn't set the css width for images. This has now been changed. 
+
+Another problem during deployment was that the user was not getting redirected after deletion or creation of a post, but this has now been solved by adding the redirect. 
+
+Also, the comments were displaying on all pages no matter which post they had wrote on. This is because I had one instance written as 'birdpost' rather than 'post'. This has now been fixed and you can only see the comments for specific pages.
+
+# Back end Deployment 
 - ElephantSQL
 I created a new instance on ElephantSQL and copied the API key into the env.py file. 
 
 - Heroku
-To deploy to Heroku I logged into my accound and created a new app. In Settings I clicked deploy. I then connected this to my gitpod repository and set the config vars. I then deployed mmy branch and run the app. This was to deploy the backend api first, and it then was able to display the veiws. 
+To deploy to Heroku I logged into my accound and created a new app. In Settings I clicked deploy. I then connected this to my gitpod repository and set the config vars. I then deployed my branch and run the app. This was to deploy the backend api first, and it then was able to display the veiws. 
 To display my react app in the deployed version I need my veiw to render my index.html page.
 
-- React 
+# Frontend deployement 
+
+- React:
+
 To create the react app I set up a frontend folder within my project. In the frontend folder I installed react using the npx create-react-app command. 
 After all the packages were installed I ran the npm start command. 
+
+- deployment:
+
+Because my project was a joint workspace I could not deploy untill the end of my project. To do this I followed the steps on code insitutes supporting documentation. I chances my urls to say api/ then removed the root. I then added a base url. Then I copied over the static files using the terminal and pushed my changed. The app branch was then updated on Heroku. 
 
 # Credits 
 
