@@ -78,6 +78,10 @@ Another problem during deployment was that the user was not getting redirected a
 
 Also, the comments were displaying on all pages no matter which post they had wrote on. This is because I had one instance written as 'birdpost' rather than 'post'. This has now been fixed and you can only see the comments for specific pages.
 
+Eslint Validator had no errors:
+
+![Eslint](https://res.cloudinary.com/dddbuwhyg/image/upload/v1722522876/Screenshot_2024-08-01_153410_iju5bs.png)
+
 # Back end Deployment 
 - ElephantSQL
 I created a new instance on ElephantSQL and copied the API key into the env.py file. 

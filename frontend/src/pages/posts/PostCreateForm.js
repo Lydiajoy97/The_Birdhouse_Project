@@ -19,7 +19,6 @@ import Asset from "../../components/Assets";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import BirdDropdown from "../../components/BirdDropdown";
-import { ButtonGroup } from "react-bootstrap";
 // Code Institutes moments walkthrough
 function PostCreateFrom() {
   const [errors, setErrors] = useState({});
