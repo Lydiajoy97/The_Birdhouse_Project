@@ -47,7 +47,8 @@ function SignInForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="username">
-        <Form.Label>Display Name</Form.Label>
+        <Form.Label>Display Name
+        </Form.Label>
           <Form.Control 
             as="textarea" 
             name ="username" 
@@ -55,33 +56,36 @@ function SignInForm() {
             value={username} 
             onChange={handleChange} 
           /> 
-          </Form.Group>
-            {errors.username?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
-                {message}
-              </Alert>
-            ))}
-          <Form.Group as={Row} className="mb-3" controlId="password">
-            <Form.Label column sm="2"> Password </Form.Label>
-              <Col sm="10">
-                <Form.Control 
-                  type="password" 
-                  placeholder="password"
-                  name="password"
-                  value={password} 
-                  onChange={handleChange} 
-                />
-                </Col>
-                </Form.Group>
-                  {errors.password?.map((message, idx) => (
-                    <Alert key={idx} variant="warning">
-                      {message}
-                    </Alert>))}
-                  <Button type="submit"> Sign in here </Button>
-                {errors.non_field_errors?.map((message, idx) => (
-              <Alert key={idx} variant="warning" className="mt-3">
-                {message}
-              </Alert>))}
+      </Form.Group>
+      {errors.username?.map((message, idx) => (
+        <Alert key={idx} variant="warning">
+          {message}
+        </Alert>
+      ))}
+      <Form.Group as={Row} className="mb-3" controlId="password">
+        <Form.Label column sm="2"> Password 
+        </Form.Label>
+        <Col sm="10">
+          <Form.Control 
+            type="password" 
+            placeholder="password"
+            name="password"
+            value={password} 
+            onChange={handleChange} 
+          />
+        </Col>
+      </Form.Group>
+        {errors.password?.map((message, idx) => (
+          <Alert key={idx} variant="warning">
+            {message}
+          </Alert>
+        ))}
+        <Button type="submit"> Sign in here </Button>
+          {errors.non_field_errors?.map((message, idx) => (
+        <Alert key={idx} variant="warning" className="mt-3">
+          {message}
+        </Alert>
+      ))}
     </Form>
   );
 }
