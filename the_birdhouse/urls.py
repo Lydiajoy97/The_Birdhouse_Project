@@ -26,9 +26,9 @@ urlpatterns = [
     path('api/dj-rest-auth/', include('dj_rest_auth.urls')),
     path('api/dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
 
-    path('api/birdpost', include('birdpost.urls')),
-    path('api/profiles', include('profiles.urls')),
-    path('api/comments', include('comments.urls')),
+    path('api/', include('birdpost.urls')),
+    path('api/', include('profiles.urls')),
+    path('api/', include('comments.urls')),
 ]
 
 handler404 = TemplateView.as_view(template_name='index.html')
