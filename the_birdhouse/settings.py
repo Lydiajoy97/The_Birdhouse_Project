@@ -71,14 +71,14 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEBUG' in os.environ
-DEBUG = False
+# DEBUG = 'DEBUG' in os.environ
+# DEBUG = True
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
         'localhost',
         '8000-lydiajoy97-thebirdhouse-fqnzv277dr8.ws.codeinstitute-ide.net',
-        '8000-lydiajoy97-thebirdhouse-8pk0wt92fwg.ws.codeinstitute-ide.net'
+        '8000-lydiajoy97-thebirdhouse-8pk0wt92fwg.ws.codeinstitute-ide.net',
     ]
     # Help to write from project 5 slack channel and walkthrough
 
