@@ -45,9 +45,9 @@ This is to create an online community where people feel safe. This forum will al
 
 
 # Frontend Wireframes
-![image]('frontend/src/assests/homepage.png')
-![image]('frontend/src/assests/signin.png')
-![image]('frontend/src/assests/profile.png')
+![Documentation1]('documentation1.png')
+![Documentation2]('documentation2.png')
+![Documentation3]('documentation3.png')
 
 # Future developments 
 - One future development is to have a meet up page where users can arrange a spot to meet up and book a place. There will be an interactive map feature and bookings form. This is the build on the community they have found through the bird spotting page. 
