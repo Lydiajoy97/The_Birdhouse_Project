@@ -6,7 +6,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import { PostDropdown } from "../../components/PostDropdown";
 
-
+// Code Institutes moments walkthrough
 const Post = (props)  => {
     const {
         id, 
