@@ -69,12 +69,6 @@ Testing Results:
  You can veiw my testing results here:
 ![testing](https://docs.google.com/document/d/15OvMF0vv1gsvvdaXJHcA-6Pp0M1fpKidckkbuRtrGvM/edit)
 
-There are a few bugs especially with displaying the comments and the user being able to edit and delete them. I am uable to solve this error.
-A user can edit their post straight after posting, but not once they have navigated onto the page. Again, I am unable to solve this error. They are also unable to delete which remains unsolved.
-
-There is also a style issue on the account creation page that I will fix in a future development.
-
-I received 1 warning in Eslint with the missing dependacy 'comments' error. I tried to fix this issue but it remains unresolved.
 
 # Deployment 
 - ElephantSQL

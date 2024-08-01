@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Category model from realpython.com 
+# https://dev.to/antdp425/populate-dropdown-options-in-react-1nk0
 BIRD_CHOICES = (
     ('owl','OWL'),
     ('eagle', 'EAGLE'),
