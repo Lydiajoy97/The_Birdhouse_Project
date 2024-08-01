@@ -19,6 +19,7 @@ import Asset from "../../components/Assets";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import BirdDropdown from "../../components/BirdDropdown";
+import { ButtonGroup } from "react-bootstrap";
 // Code Institutes moments walkthrough
 function PostCreateFrom() {
   const [errors, setErrors] = useState({});
@@ -134,12 +135,12 @@ function PostCreateFrom() {
         <BirdDropdown />
       </Form.Group>
       <Button
-        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+        className={`${btnStyles.Button}`}
         onClick={() => history.goBack()}
       >
         cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+      <Button className={`${btnStyles.Button}`} type="submit">
         create
       </Button>
     </div>
@@ -159,12 +160,11 @@ function PostCreateFrom() {
                     <Image className={appStyles.Image} src={image}  />
                   </figure>
                   <div>
-                    <Form.Label
-                      className={`${btnStyles.Button} ${btnStyles.Blue}  btn`} 
+                    <Button
+                      className={`${btnStyles.Button}`} 
                       htmlFor='image-upload'
-                    >
-                      Change Picture
-                     </Form.Label>
+                    > Change Picture
+                     </Button>
                   </div>
                 </>
               ) : (
