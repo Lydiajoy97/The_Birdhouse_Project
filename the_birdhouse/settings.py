@@ -77,14 +77,19 @@ DEBUG = True
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
         'localhost',
-        '8000-lydiajoy97-thebirdhouse-fqnzv277dr8.ws.codeinstitute-ide.net',
         '8000-lydiajoy97-thebirdhouse-8pk0wt92fwg.ws.codeinstitute-ide.net',
+        'https://the-birdhouse-project-b719ced46037.herokuapp.com/',
     ]
     # Help to write from project 5 slack channel and walkthrough
 
-CORS_ALLOWED_ORIGINS =[
-    os.environ.get('CLIENT_ORIGIN')
-]
+ if 'CLIENT_ORIGIN' in os.environ:
+     CORS_ALLOWED_ORIGINS = [
+         os.environ.get('CLIENT_ORIGIN')
+     ]
+ else:
+     CORS_ALLOWED_ORIGIN_REGEXES = [
+         r"^https://.*\.gitpod\.io$",
+     ]
 
 CSRF_TRUSTED_ORIGINS = [os.environ.get(
     'CLIENT_ORIGIN_DEV',
