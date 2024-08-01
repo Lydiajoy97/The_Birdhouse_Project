@@ -15,7 +15,7 @@ function BirdDropdown() {
   let handleBirdChange = (e) => {setBird(e.target.value)
   }
   return (
-    <div className="bird-dropdown"> Type of bird!
+    <div className="bird-dropdown">
     <br />
     <select onChange={handleBirdChange}> 
       <option> Type of Bird </option>
