@@ -71,25 +71,18 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = 'DEBUG' in os.environ
-DEBUG = True
+DEBUG = 'DEBUG' in os.environ
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
         'localhost',
-        '8000-lydiajoy97-thebirdhouse-8pk0wt92fwg.ws.codeinstitute-ide.net',
-        'https://the-birdhouse-project-b719ced46037.herokuapp.com/',
     ]
-    # Help to write from project 5 slack channel and walkthrough
 
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
-else:
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        r"^https://.*\.gitpod\.io$",
-    ]
+# Help to write from project 5 slack channel and walkthrough
+
+CORS_ALLOWED_ORIGINS = [
+    os.environ.get('CLIENT_ORIGIN')
+]
 
 CSRF_TRUSTED_ORIGINS = [os.environ.get(
     'CLIENT_ORIGIN_DEV',
