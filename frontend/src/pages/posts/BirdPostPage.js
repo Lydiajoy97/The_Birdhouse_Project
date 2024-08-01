@@ -22,14 +22,14 @@ function BirdPostPage() {
 
   useEffect(() => {
     const handleMount = async () => {
-        try {
-          const [{ data: post }, { data: comments }] = await Promise.all([
-            axiosReq.get(`/birdpost/${id}`),
-            axiosReq.get(`/comments/?post=${id}`),
-          ]);
-          setPost({ results: [post] });
-          setComments(comments);
-        } catch(err) {
+      try {
+        const [{ data: post }, { data: comments }] = await Promise.all([
+          axiosReq.get(`/birdpost/${id}`),
+          axiosReq.get(`/comments/?post=${id}`),
+        ]);
+        setPost({ results: [post] });
+        setComments(comments);
+      } catch(err) {
     }
   }; 
 
