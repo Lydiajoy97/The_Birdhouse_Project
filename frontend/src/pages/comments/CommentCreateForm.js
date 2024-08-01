@@ -22,7 +22,6 @@ function CommentCreateForm(props) {
       const { data } = await axiosRes.post("/api/comments/", {
         content,
         post,
-        comments_count,
       });
       setComments((prevComments) => ({
         ...prevComments,
@@ -31,8 +30,7 @@ function CommentCreateForm(props) {
       setPost((prevPost) => ({
         results: [
           {
-            ...prevPost.results[0],
-            comments_count: prevPost.results[0].comments_count + 1,
+          ...prevPost.results[0],
           },
         ],
       }));
