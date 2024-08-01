@@ -1,4 +1,9 @@
 /* From Code insitutes walkthrough */
 .Container {
-    min-height: 343px;
-  }
+    min-height: fit-content;
+    max-width: fit-content;
+}
+
+.appStyles.Image {
+    max-width: 500px;
+}

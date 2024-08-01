@@ -169,7 +169,7 @@ function PostCreateFrom() {
                 </>
               ) : (
                 <Form.Label
-                  className="d-flex"
+                  className="d-flex justify content center"
                   htmlFor="image-upload"
                 >
                   <Asset
@@ -184,6 +184,7 @@ function PostCreateFrom() {
                 accept="image/*"
                 onChange={handleChangeImage}
                 ref={imageInput}
+                width={300}
                 />
             </Form.Group>
             <div className="d-md-none">{textFields}</div>
