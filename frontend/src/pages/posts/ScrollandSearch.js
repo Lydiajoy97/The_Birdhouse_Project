@@ -18,7 +18,7 @@ function ManyBirdPostsPage({filter = "" }) {
     useEffect(() => {
         const fetchBirdPost = async () => {
             try {
-                const {data} = await axiosReq.get(`/birdpost/?${filter}search=${query}`);
+                const {data} = await axiosReq.get(`api/birdpost?${filter}search=${query}`);
                 setPosts(data);
                 setHasLoaded(true);
             }catch (err) {

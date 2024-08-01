@@ -76,6 +76,7 @@ DEBUG = 'DEBUG' in os.environ
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
         'localhost',
+        '8000-lydiajoy97-thebirdhouse-8pk0wt92fwg.ws.codeinstitute-ide.net',
     ]
 
 # Help to write from project 5 slack channel and walkthrough

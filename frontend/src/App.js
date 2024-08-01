@@ -21,13 +21,12 @@ function App() {
             <Container className={styles.Main}>
               <Switch>
                 <Route exact path="/" render={() => <HomePage/>} />
-                <Route exact path="/birdhouse" render={() => <ScrollandSearch/>}/>
+                <Route exact path="/birdpost" render={() => <ScrollandSearch/>}/>
                 <Route exact path="/signup"  render={() => <AccountCreation/>} />
                 <Route exact path="/signin" render={() => <SignInForm/>} />
                 <Route exact path="/posts/create" render={() => <PostCreateFrom/>} />
                 <Route exact path="/posts/:id" render={() => <BirdPostPage/>} />
                 <Route exact path="/posts/:id/edit" render={() => <BirdPostEditForm />} />
-                <Route exact path="/birdpost/:id" render={() => <BirdPostPage />} />
                 <Route exact path="/profiles" render={() => <Profile />} />
                 <Route render={() => <p>Page not found!</p>} />
               </Switch>

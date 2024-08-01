@@ -9,7 +9,7 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 // From Code Insitutes Moments walkthrough
 function CommentCreateForm(props) {
-  const { post, setPost, setComments, profile_id } = props;
+  const { post, setPost, setComments, profile_id, } = props;
   const [content, setContent] = useState("");
 
   const handleChange = (event) => {
@@ -19,9 +19,10 @@ function CommentCreateForm(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await axiosRes.post("/comments/", {
+      const { data } = await axiosRes.post("/api/comments/", {
         content,
         post,
+        comments_count,
       });
       setComments((prevComments) => ({
         ...prevComments,

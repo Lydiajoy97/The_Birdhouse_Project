@@ -34,7 +34,7 @@ function BirdPostEditForm() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get(`/birdpost/${id}/`);
+        const { data } = await axiosReq.get(`/birdpost${id}/`);
         const { title, content, image, is_owner } = data;
 
         is_owner ? setPostData({ title, content, image }) : history.push("/");
