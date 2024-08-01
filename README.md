@@ -82,6 +82,10 @@ Eslint Validator had no errors:
 
 ![Eslint](https://res.cloudinary.com/dddbuwhyg/image/upload/v1722522876/Screenshot_2024-08-01_153410_iju5bs.png)
 
+CSS Validator:
+
+![CSS](https://res.cloudinary.com/dddbuwhyg/image/upload/v1722523353/Screenshot_2024-08-01_154207_g3ccmi.png)
+
 # Back end Deployment 
 - ElephantSQL
 I created a new instance on ElephantSQL and copied the API key into the env.py file. 
