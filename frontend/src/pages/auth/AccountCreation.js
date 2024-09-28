@@ -81,7 +81,7 @@ const AccountCreation = () => {
                 <Col sm="10">
                   <Form.Control 
                     type="password" 
-                    placeholder="password1"
+                    placeholder="Create Password"
                     name="password1"
                     value={password1} 
                     onChange={handleChange} 
