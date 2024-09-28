@@ -34,7 +34,7 @@ function BirdPostEditForm() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get(`/birdpost${id}/`);
+        const { data } = await axiosReq.get(`/birdpost/${id}`);
         const { title, content, image, is_owner } = data;
 
         is_owner ? setPostData({ title, content, image }) : history.push("/");
@@ -74,8 +74,8 @@ function BirdPostEditForm() {
     }
 
     try {
-      await axiosReq.put(`/birdpost/${id}/`, formData);
-      history.push(`/posts/${id}`);
+      await axiosReq.put(`api/birdpost/${id}`, formData);
+      history.push(`/birdpost/${id}`);
     } catch (err) {
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
