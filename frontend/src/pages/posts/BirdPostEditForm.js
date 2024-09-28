@@ -75,7 +75,7 @@ function BirdPostEditForm() {
 
     try {
       await axiosReq.put(`/birdpost/${id}/`, formData);
-      history.push(`/birdpost/${id}`);
+      history.push(`/posts/${id}`);
     } catch (err) {
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
@@ -108,7 +108,7 @@ function BirdPostEditForm() {
           name="content"
           value={content}
           onChange={handleChange}
-        />
+      />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
         <Alert variant="warning" key={idx}>

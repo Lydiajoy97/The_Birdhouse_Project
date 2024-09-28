@@ -65,11 +65,11 @@ function PostCreateFrom() {
       formData.append('image', imageInput.current.files[0]);
   
       try {
-      const { data } =await axiosReq.post('/api/birdpost/', formData);
-       history.push(`/birdpost/${data.id}`);
-      } catch(err){ 
-        if (err.response?.status !== 401) {
-         setErrors(err.response?.data)
+        const { data } =await axiosReq.post('/api/birdpost/', formData);
+          history.push(`/posts/${id}`);
+        } catch(err){ 
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data)
       }
     }
   }

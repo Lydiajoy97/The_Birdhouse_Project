@@ -29,7 +29,7 @@ function App() {
                 <Route exact path="/posts/:id" render={() => <BirdPostPage/>} />
                 <Route exact path="/posts/:id/edit" render={() => <BirdPostEditForm />} />
                 <Route exact path="/profiles" render={() => <Profile />} />
-                <Route render={() => <p>Page not found!</p>} />
+                <Route render={() => <p> Page not found! </p>} />
               </Switch>
             </Container>
         </div>
