@@ -23,13 +23,13 @@ const Post = (props)  => {
     const history = useHistory();
 
     const handleEdit = () => {
-        history.push(`/posts/${id}/edit`);
+        history.push(`/birdpost/${id}/edit`);
     };
 
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/api/birdpost/${id}`);
-            history.push("/posts/create");
+            history.push("birdpost/create");
         } catch (err) {
             console.log(err);
         }
@@ -52,7 +52,7 @@ const Post = (props)  => {
             </Media>
         </Card.Body>
         <Card.Text></Card.Text>
-        <Link to={`/posts/${id}`}>
+        <Link to={`/birdpost/${id}`}>
            <Card.Img src={image} alt={title} />
         </Link>
         <Card.Body>
@@ -60,7 +60,7 @@ const Post = (props)  => {
                {content && <Card.Text>{content}</Card.Text>}
                {location && <Card.Text>{location}</Card.Text>}
             <div className={styles.PostBar}>     
-          <Link to={`/posts/${id}`}>
+          <Link to={`/birdpost/${id}`}>
             <i className="far fa-comments" />
           </Link>
           {comments_count}
