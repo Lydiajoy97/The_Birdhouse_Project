@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Profile = (props) => {
-    
+const Profile = (props) => { 
     return (
         <div>
           <Link className="align-self-center" >

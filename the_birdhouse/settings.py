@@ -77,6 +77,7 @@ ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
         'localhost',
         'http://3000-lydiajoy97-thebirdhouse-kvm3d7ixgux.ws.codeinstitute-ide.net',
+        '8000-lydiajoy97-thebirdhouse-kvm3d7ixgux.ws.codeinstitute-ide.net',
     ]
 
 # Help to write from project 5 slack channel and walkthrough
