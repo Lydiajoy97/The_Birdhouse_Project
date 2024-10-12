@@ -130,7 +130,11 @@ function PostCreateFrom() {
           value={location} 
         />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="Categories">
+      <Form.Group 
+        className="mb-3" 
+        name="Type_of_bird" 
+        onChange={handleChange}
+        value={Type_of_bird}>
         <BirdDropdown />
       </Form.Group>
       <Button

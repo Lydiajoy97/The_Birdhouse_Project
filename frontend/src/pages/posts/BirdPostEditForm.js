@@ -22,6 +22,7 @@ function BirdPostEditForm() {
 
   const [postData, setPostData] = useState({
     title: "",
+    Type_of_bird: "",
     content: "",
     image: "",
   });
@@ -35,9 +36,9 @@ function BirdPostEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/birdpost/${id}`);
-        const { title, content, image, is_owner } = data;
+        const { title, Type_of_bird, content, image, is_owner } = data;
 
-        is_owner ? setPostData({ title, content, image }) : history.push("/");
+        is_owner ? setPostData({ title, Type_of_bird, content, image }) : history.push("/");
       } catch (err) {
       }
     };
@@ -67,6 +68,7 @@ function BirdPostEditForm() {
     const formData = new FormData();
 
     formData.append("title", title);
+    formData.append("Type_of_bird");
     formData.append("content", content);
 
     if (imageInput?.current?.files[0]) {
@@ -99,7 +101,6 @@ function BirdPostEditForm() {
           {message}
         </Alert>
       ))}
-
       <Form.Group>
         <Form.Label>Content</Form.Label>
         <Form.Control

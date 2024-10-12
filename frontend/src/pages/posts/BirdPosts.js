@@ -12,6 +12,7 @@ const Post = (props)  => {
         id, 
         owner, 
         title,
+        Type_of_bird,
         content, 
         location,
         image, 
@@ -58,6 +59,7 @@ const Post = (props)  => {
         <Card.Body>
                {title && <Card.Title className="text-center">{title}</Card.Title>}
                {content && <Card.Text>{content}</Card.Text>}
+               {Type_of_bird && <Card.Text>{Type_of_bird}</Card.Text>}
                {location && <Card.Text>{location}</Card.Text>}
             <div className={styles.PostBar}>     
           <Link to={`/birdpost/${id}`}>
