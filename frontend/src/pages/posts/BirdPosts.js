@@ -17,7 +17,7 @@ const Post = (props)  => {
         location,
         image, 
         comments_count,
-    } = props;
+    } = props; 
     
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;

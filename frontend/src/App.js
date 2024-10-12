@@ -12,6 +12,8 @@ import BirdPostEditForm from "./pages/posts/BirdPostEditForm";
 import HomePage from "./pages/homepage/HomePage";
 import Profile from "./pages/profile/Profile";
 import ManyBirdPostsPage from "./pages/posts/ManyBirdPostsPage";
+import EditProfile from "./pages/profile/CreateProfileForm";
+import CreateProfile from "./pages/profile/CreateProfileForm";
 
 /* Built using Code insitute walkthrough*/
 function App() { 
@@ -28,7 +30,8 @@ function App() {
                 <Route exact path="/birdpost/create" render={() => <PostCreateFrom/>} />
                 <Route exact path="/birdpost/:id" render={() => <BirdPostPage/>} />
                 <Route exact path="/birdpost/:id/edit" render={() => <BirdPostEditForm />} />
-                <Route exact path="/profiles" render={() => <Profile />} />
+                <Route exact path="/profiles/:id" render={() => <Profile />} />
+                <Route exact path="/profiles/:id/edit" render={() => <CreateProfile />} />
                 <Route render={() => <p> Page not found! </p>} />
               </Switch>
             </Container>

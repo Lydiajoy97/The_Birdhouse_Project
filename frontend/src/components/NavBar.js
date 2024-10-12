@@ -55,7 +55,7 @@ const NavBar = () => {
         <i className="fas fa-sign-out-alt"></i>
       </NavLink>
       <NavLink
-        to="/profiles"
+        to="/profiles/:id"
         className={styles.NavLink}
       >
         {currentUser?.username}
