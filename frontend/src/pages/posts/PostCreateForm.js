@@ -100,8 +100,8 @@ function PostCreateFrom() {
           value={title}
           onChange={handleChange}
         />
-      </Form.Group>
-      {errors?.title?.map((message, idx) => (
+        </Form.Group>
+        {errors?.title?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
@@ -130,11 +130,7 @@ function PostCreateFrom() {
           value={location} 
         />
       </Form.Group>
-      <Form.Group 
-        className="mb-3" 
-        name="Type_of_bird" 
-        onChange={handleChange}
-        value={Type_of_bird}>
+      <Form.Group className="mb-3" controlId="Type_of_bird">
         <BirdDropdown />
       </Form.Group>
       <Button
@@ -181,7 +177,6 @@ function PostCreateFrom() {
                   />
                 </Form.Label>
               )}
-              
               <Form.File 
                 id="image-upload" 
                 accept="image/*"
