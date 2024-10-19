@@ -23,3 +23,4 @@ class Birdpost(models.Model):
     Type_of_bird = models.CharField(max_length=60, choices=BIRD_CHOICES, default='unknown')
     updated_at = models.DateTimeField(auto_now=True)
     uploaded_by = models.CharField(max_length=255, default='name')
+    approved = models.BooleanField(default=False)
