@@ -49,7 +49,7 @@ function CreateProfile() {
       formData.append('favorite_bird', favorite_bird);
   
       try {
-      const { data } =await axiosReq.post('/api/profiles', formData);
+      const { data } =await axiosReq.get(`api/profiles/${id}`, formData);
        history.push(`/profiles/${data.id}`);
       } catch(err){ 
         if (err.response?.status !== 401) {
@@ -94,8 +94,8 @@ function CreateProfile() {
         <Form.Label>What is your favorite bird?</Form.Label>
         <Form.Control 
           as="textarea" 
-          rows={8} 
-          name="content"
+          rows={4} 
+          name="favorite_bird"
           value={favorite_bird}
           onChange={handleChange}/>
       </Form.Group>

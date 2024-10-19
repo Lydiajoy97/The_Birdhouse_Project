@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 
 const Profile = (props) => {
-  const {  id, owner, profile } = props;
+  const {  id, owner, display_name, favorite_bird, about_me } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner; 
@@ -30,13 +30,15 @@ const Profile = (props) => {
 
   return <Card className={styles.Post}>
        <Link to={`/profiles/${id}/edit`}>
-            <i className="far fa-comments" /> Edit Profile
+             Edit Profile
           </Link>
-      <Card.Body>
-             {profile}
-          <div className={styles.PostBar}>
+        <div>
+        <Card.Body>
+               {display_name && <Card.Title className="text-center">{display_name}</Card.Title>}
+               {about_me && <Card.Text>{about_me}</Card.Text>}
+               {favorite_bird && <Card.Text>{favorite_bird}</Card.Text>}
+        </Card.Body>
         </div>
-      </Card.Body>
   </Card>
 };
 
