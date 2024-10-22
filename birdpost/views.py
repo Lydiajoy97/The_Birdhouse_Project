@@ -4,6 +4,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .models import Birdpost
 from .serializers import BirdpostSerializer
 from the_birdhouse.permissions import IsOwnerOrReadOnly
+from rest_framework.response import Response
 
 # Code written from django rest framework walkthrough
 class BirdpostList(generics.ListCreateAPIView):
@@ -26,16 +27,24 @@ class BirdpostList(generics.ListCreateAPIView):
         'content',
         'location',
     ]
-    
+    # https://www.youtube.com/watch?v=c-QsfbznSXI
     def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+        if serializer.is_valid(): 
+            serializer.save(owner=self.request.user)
+        else:
+            print(serializer.errors)
 
 
 class BirdpostDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = BirdpostSerializer
     queryset = Birdpost.objects.annotate(
-        posts_count = Count('owner__displayname', distinct=True)
-    ).order_by('-updated_at')
+         posts_count = Count('owner__displayname', distinct=True)
+            ).order_by('-updated_at')
 
-    
+# https://www.youtube.com/watch?v=k6ELzQgPHMM
+# class CreateBirdpostView(APIView):
+#     serializer_class = CreateBirdpostSerializer 
+
+#     def post(self, request, format=None):
+#         pass

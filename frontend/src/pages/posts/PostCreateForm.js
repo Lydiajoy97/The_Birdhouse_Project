@@ -29,9 +29,9 @@ function PostCreateFrom() {
     content:"",
     image:"",
     title: "",
-    Type_of_bird: "",
+    type_of_bird: "",
   });
-  const { name, location, content, image, title, Type_of_bird } = postData;
+  const { name, location, content, image, title, type_of_bird } = postData;
 
   const imageInput = useRef(null)
   const history = useHistory()
@@ -61,7 +61,7 @@ function PostCreateFrom() {
       formData.append('title', title);
       formData.append('content', content);
       formData.append('location', location);
-      formData.append('Type_of_bird', Type_of_bird);
+      formData.append('type_of_bird', type_of_bird);
       formData.append('image', imageInput.current.files[0]);
   
       try {
