@@ -16,7 +16,8 @@ class ProfileList(generics.ListAPIView):
         DjangoFilterBackend,
     ]
     filterset_fields = [
-        'profile',
+        'display_name',
+        'favorite_bird'
     ]
 
 class ProfileDetail(generics.RetrieveUpdateAPIView):

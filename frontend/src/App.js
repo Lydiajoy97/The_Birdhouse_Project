@@ -7,13 +7,11 @@ import AccountCreation from "./pages/auth/AccountCreation";
 import SignInForm from "./pages/auth/signin";
 import PostCreateFrom from "./pages/posts/PostCreateForm"
 import BirdPostPage from "./pages/posts/BirdPostPage";
-import ScrollandSearch from "./pages/posts/ManyBirdPostsPage";
 import BirdPostEditForm from "./pages/posts/BirdPostEditForm";
 import HomePage from "./pages/homepage/HomePage";
 import Profile from "./pages/profile/Profile";
 import ManyBirdPostsPage from "./pages/posts/ManyBirdPostsPage";
 import EditProfile from "./pages/profile/CreateProfileForm";
-import CreateProfile from "./pages/profile/CreateProfileForm";
 
 /* Built using Code insitute walkthrough*/
 function App() { 
@@ -31,7 +29,7 @@ function App() {
                 <Route exact path="/birdpost/:id" render={() => <BirdPostPage/>} />
                 <Route exact path="/birdpost/:id/edit" render={() => <BirdPostEditForm />} />
                 <Route exact path="/profiles/:id" render={() => <Profile />} />
-                <Route exact path="/profiles/:id/edit" render={() => <CreateProfile />} />
+                <Route exact path="/profiles/:id/edit" render={() => <EditProfile />} />
                 <Route render={() => <p> Page not found! </p>} />
               </Switch>
             </Container>

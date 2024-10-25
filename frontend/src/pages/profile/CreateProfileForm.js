@@ -1,21 +1,14 @@
 /* From Code Insitutes Moments walkthrough */
-import React, { useRef, useState } from "react";
-
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
-import Image from "react-bootstrap/Image"
-
-import PinkUpload from "../../assets/PinkUpload.png";
-
 import styles from "../../styles/CreateEditPosts.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import Asset from "../../components/Assets";
-
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -28,9 +21,8 @@ function CreateProfile() {
     about_me:"",
     favorite_bird: "",
   });
-  const { display_name, about_me, favorite_bird } = postData;
+  const { display_name, about_me, favorite_bird, } = postData;
 
-  const imageInput = useRef(null)
   const history = useHistory()
 
   const handleChange = (event) => {
@@ -49,7 +41,7 @@ function CreateProfile() {
       formData.append('favorite_bird', favorite_bird);
   
       try {
-      const { data } =await axiosReq.get(`api/profiles/${id}`, formData);
+      const { data } =await axiosReq.get(`api/profiles`, formData);
        history.push(`/profiles/${data.id}`);
       } catch(err){ 
         if (err.response?.status !== 401) {
