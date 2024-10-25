@@ -22,6 +22,7 @@ const Post = (props)  => {
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
     const history = useHistory();
+    const approved = props.approved;
 
     const handleEdit = () => {
         history.push(`/birdpost/${id}/edit`);
@@ -35,7 +36,7 @@ const Post = (props)  => {
             console.log(err);
         }
     };
-
+    if (approved) {
     return <Card className={styles.Post}>
         <Card.Body>
             <Media className= "align-items-center justify-content-between">
@@ -69,6 +70,8 @@ const Post = (props)  => {
           </div>
         </Card.Body>
     </Card>
+    }
 };
+
 
 export default Post;
