@@ -25,7 +25,7 @@ function BirdPostPage() {
       try {
         const [{ data: post }, { data: comments }] = await Promise.all([
           axiosReq.get(`api/birdpost/${id}`),
-          axiosReq.get(`api/comments/?post=${id}`),
+          axiosReq.get(`api/comments`),
         ]);
         setPost({ results: [post] });
         setComments(comments);
