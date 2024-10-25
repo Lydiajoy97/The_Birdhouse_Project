@@ -5,6 +5,7 @@ from .models import Birdpost
 from .serializers import BirdpostSerializer
 from the_birdhouse.permissions import IsOwnerOrReadOnly
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 # Code written from django rest framework walkthrough
 class BirdpostList(generics.ListCreateAPIView):
@@ -43,8 +44,7 @@ class BirdpostDetail(generics.RetrieveUpdateDestroyAPIView):
             ).order_by('-updated_at')
 
 # https://www.youtube.com/watch?v=k6ELzQgPHMM
-# class CreateBirdpostView(APIView):
-#     serializer_class = CreateBirdpostSerializer 
+class CreateBirdpostView(APIView):
 
-#     def post(self, request, format=None):
-#         pass
+    def post(self, request, format=None):
+        pass

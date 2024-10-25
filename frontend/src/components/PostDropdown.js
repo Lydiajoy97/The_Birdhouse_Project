@@ -7,7 +7,7 @@ import styles from "../styles/Dropdown.module.css"
 
 const Menu = React.forwardRef(({ onClick }, ref) => (
     <i
-        class="fa-solid fa-bars"
+        className="fa-solid fa-bars"
         ref={ref}
         onClick={(e) => {
             e.preventDefault();
