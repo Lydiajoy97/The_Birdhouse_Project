@@ -31,7 +31,7 @@ const Post = (props)  => {
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/api/birdpost/${id}`);
-            history.push("birdpost/create");
+            history.push("/birdpost/create");
         } catch (err) {
             console.log(err);
         }

@@ -19,8 +19,8 @@ const Profile = (props) => {
            Edit Profile
           </Link>
         <div>
-               {about_me && <Card.Title className="text-center">{about_me}</Card.Title>}
-               {favorite_bird && <Card.Text>{favorite_bird}</Card.Text>}
+          {about_me && <Card.Title className="text-center">{about_me}</Card.Title>}
+          {favorite_bird && <Card.Text>{favorite_bird}</Card.Text>}
         </div>
   </Card>
 };
