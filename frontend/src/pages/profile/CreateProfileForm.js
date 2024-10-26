@@ -41,7 +41,7 @@ function CreateProfile() {
       formData.append('favorite_bird', favorite_bird);
   
       try {
-      const { data } =await axiosReq.get(`api/profiles`, formData);
+      const { data } =await axiosReq.get(`/api/profiles`, formData);
        history.push(`/profiles/${data.id}`);
       } catch(err){ 
         if (err.response?.status !== 401) {
