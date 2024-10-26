@@ -23,6 +23,7 @@ class BirdpostList(generics.ListCreateAPIView):
     filterset_fields = [
         'content',
         'location',
+        'approved',
     ]
     search_fields = [
         'content',
@@ -43,8 +44,8 @@ class BirdpostDetail(generics.RetrieveUpdateDestroyAPIView):
          posts_count = Count('owner__displayname', distinct=True)
             ).order_by('-updated_at')
 
-# https://www.youtube.com/watch?v=k6ELzQgPHMM
-class CreateBirdpostView(APIView):
+# # https://www.youtube.com/watch?v=k6ELzQgPHMM
+# class CreateBirdpostView(APIView):
 
-    def post(self, request, format=None):
-        pass
+#     def post(self, request, format=None):
+#         pass
