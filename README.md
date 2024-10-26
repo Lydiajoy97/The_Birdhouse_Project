@@ -158,3 +158,8 @@ https://stackoverflow.com/questions/31130706/dropdown-in-django-model
 https://docs.djangoproject.com/en/5.0/ref/models/fields/#:~:text=choices%20is%20meant%20for%20static,t%20change%20much%2C%20if%20ever.&text=A%20new%20migration%20is%20created,for%20the%20field's%20current%20value.
 
 https://react-bootstrap.netlify.app/docs/forms/select/
+
+approval model:
+https://www.youtube.com/watch?v=pwkAMX1zgOI
+
+https://stackoverflow.com/questions/40477245/is-it-possible-to-use-if-else-statement-in-react-render-function 
