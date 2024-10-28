@@ -1,50 +1,64 @@
-import React from 'react'
-import { useEffect } from 'react';
-import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React from "react";
+import styles from "../../styles/Posts.module.css";
+import { Card, Media, } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { axiosReq } from "../../api/axiosDefaults";
+import { axiosRes } from "../../api/axiosDefaults";
+import { PostDropdown } from "../../components/PostDropdown";
 
-const ProfilePost = (props)  => {
+// Code Institutes moments walkthrough
+const ProfilePage = (props)  => {
+    const {
+        id,
+        first_name,
+        favorite_bird,
+        about_me,
+        posts_count,
+        data, 
+    } = props; 
+    
+    const currentUser = useCurrentUser();
+    // const is_owner = currentUser?.username === owner;
+    const history = useHistory();
 
-        const { 
-            display_name,
-            about_me,
-            favorite_bird,
-            id,
-            owner,
-        } = props; 
+    const handleEdit = () => {
+        history.push(`/profiles/${id}/edit`);
+    };
 
-        useEffect(() => {
-            const ProfilePosts = async () => {
-                try {
-                    const {data} = await axiosReq.get(`/api/profiles?${data.id}`);
-                    ProfilePosts();
-                }catch (err) {
-                    console.log(err);
-                }
-            };
-        },);
+    const handleDelete = async () => {
+        try {
+            await axiosRes.delete(`/api/profiles/${data.id}`);
+            history.push("/");
+        } catch (err) {
+            console.log(err);
+        }
+    };
+    return <Card className={styles.Post}>
+        <Card.Body>
+            <Media className= "align-items-center justify-content-between">
+                <div className="d-flex align-items-center">
+                        {currentUser?.username} 
+                        <br/>
+                        {currentUser && (
+                        <PostDropdown 
+                            handleEdit={handleEdit}
+                            handleDelete={handleDelete}
+                        /> )}
+                </div>
+            </Media>
+        </Card.Body>
+        <Card.Text></Card.Text>
+        <Card.Body> 
 
-        const currentUser = useCurrentUser();
-
-    return (
-    <Card>
-        <Link
-      to="/profiles/:id/edit"
-    >
-      <i className="far fa-plus-square"></i> Edit Profile
-    </Link>
-          <Card.Body>
-               Name to be displayed: {display_name && <Card.Text>{display_name}</Card.Text>}
-               <br />
-               About you: {about_me && <Card.Text>{about_me}</Card.Text>}
-               <br />
-               Favorite bird: {favorite_bird && <Card.Text>{favorite_bird}</Card.Text>}
-            </Card.Body>
+               Name: {first_name && <Card.Title className="text-center">{first_name}</Card.Title>}<br/>
+               About you: {about_me && <Card.Text>{about_me}</Card.Text>}<br/>
+               Favorite bird: {favorite_bird && <Card.Text>{favorite_bird}</Card.Text>}<br/>
+               Current Posts: {posts_count}
+            <div className={styles.PostBar}>  
+          </div>
+        </Card.Body>
     </Card>
-  )
-};
+}
+;
 
-export default ProfilePost;
+export default ProfilePage;

@@ -11,6 +11,7 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useEffect } from "react";
 
 // Code Institutes moments walkthrough
 function CreateProfile() {
@@ -21,9 +22,24 @@ function CreateProfile() {
     about_me:"",
     favorite_bird: "",
   });
-  const { display_name, about_me, favorite_bird, } = postData;
+  const { display_name, about_me, favorite_bird, is_owner, id } = postData;
 
-  const history = useHistory()
+  const history = useHistory();
+
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get(`api/profiles`);
+        const { display_name, about_me, favorite_bird } = data;
+
+        is_owner ? setPostData({ display_name, about_me, favorite_bird }) : history.push("/");
+      } catch (err) {
+      }
+    };
+
+    handleMount();
+  }, [history, id, is_owner]);
+
 
   const handleChange = (event) => {
     setPostData({
@@ -41,13 +57,13 @@ function CreateProfile() {
       formData.append('favorite_bird', favorite_bird);
   
       try {
-      const { data } =await axiosReq.get(`/api/profiles`, formData);
-       history.push(`/profiles/${data.id}`);
-      } catch(err){ 
+        await axiosReq.put(`api/profiles`, formData);
+        history.push(`/profiles/${id}`);
+      } catch (err) {
         if (err.response?.status !== 401) {
-         setErrors(err.response?.data)
+          setErrors(err.response?.data);
+        }
       }
-    }
   }
 
   const textFields = (
