@@ -22,8 +22,8 @@ This is to create an online community where people feel safe. This forum will al
 # User-Stories:
 1) As a user I want to be able to create an account and sign in to the platform so that I can add content. 
 2) As a user I want to post pictures of the birds that I have spotted. 
-3) As a user I want to comment and like other users bird pictures. 
-4) As a user I want to veiw other users profile and learn more about their intrests. 
+3) As a user I want to comment on other users bird pictures. 
+4) As a user I want to veiw other users profile and learn more about their interests. 
 5) As a user I want to filter posts so that I can see different types of birds. 
 6) As a user I want good user experience navagating the website.
 
@@ -34,6 +34,8 @@ This is to create an online community where people feel safe. This forum will al
 - Post bird pictures and content 
 - Comment on others posts 
 - Delete own posts and comments
+
+# React functionalities and components
 
 # Structure-Plan:
 - API structure 
@@ -51,19 +53,20 @@ This is to create an online community where people feel safe. This forum will al
 ![Documentation3](https://res.cloudinary.com/dddbuwhyg/image/upload/v1722500863/documentation3.png)
 
 # Future developments 
+
+- Authenticate profiles so that the admin can montior posts. I will do this by adding a approved boolean field to the model and migrate the changes.
+- 
 - One future development is to have a meet up page where users can arrange a spot to meet up and book a place. There will be an interactive map feature and bookings form. This is the build on the community they have found through the bird spotting page. 
 
 - Another feature development is to add a react-bootstrap carosel on the home page. This will add to user experience and the overall look of the website. 
 
 - I would also like to add a likes feature so that the users can like eachothers posts. 
 
-- Another future development is to create the profiles page where a user can update and delete thier profile.
-
-- Another future devlopment is to add a page footer so that a user can contact The Birdhouse and find the socail media pages.
+- Another future devlopment is to add a page footer so that a user can contact The Birdhouse and find the social media pages.
 
 # Testing-and-Results 
 Strategy:
-Much of the testing has been done during devlopment such as the back-end testing. My Api connects to my frontend and I am able to minipulate data. I can veiw my admin console and edit and delete posts on there. 
+Much of the testing has been done during development such as the back-end testing. My Api connects to my frontend and I am able to minipulate data. I can veiw my admin console and edit and delete posts on there. 
 
 Testing Results:
  You can veiw my testing results here:
@@ -94,7 +97,7 @@ I created a new instance on ElephantSQL and copied the API key into the env.py f
 To deploy to Heroku I logged into my accound and created a new app. In Settings I clicked deploy. I then connected this to my gitpod repository and set the config vars. I then deployed my branch and run the app. This was to deploy the backend api first, and it then was able to display the veiws. 
 To display my react app in the deployed version I need my veiw to render my index.html page.
 
-# Frontend deployement 
+# Frontend deployment 
 
 - React:
 
