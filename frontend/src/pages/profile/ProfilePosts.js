@@ -10,7 +10,7 @@ import { PostDropdown } from "../../components/PostDropdown";
 const ProfilePage = (props)  => {
     const {
         id,
-        first_name,
+        display_name,
         favorite_bird,
         about_me,
         posts_count,
@@ -49,11 +49,11 @@ const ProfilePage = (props)  => {
         </Card.Body>
         <Card.Text></Card.Text>
         <Card.Body> 
-
-               Name: {first_name && <Card.Title className="text-center">{first_name}</Card.Title>}<br/>
-               About you: {about_me && <Card.Text>{about_me}</Card.Text>}<br/>
-               Favorite bird: {favorite_bird && <Card.Text>{favorite_bird}</Card.Text>}<br/>
-               Current Posts: {posts_count}
+               <h2>Name:</h2> {display_name && <Card.Title className="text-center">{display_name}</Card.Title>}
+               <br/>
+               <h2>About you: </h2> {about_me && <Card.Text>{about_me}</Card.Text>}<br/>
+               <h2>Favorite bird: </h2>{favorite_bird && <Card.Text>{favorite_bird}</Card.Text>}<br/>
+               <h2>Current Posts: </h2>{posts_count}
             <div className={styles.PostBar}>  
           </div>
         </Card.Body>
