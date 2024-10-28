@@ -10,8 +10,10 @@ import BirdPostPage from "./pages/posts/BirdPostPage";
 import BirdPostEditForm from "./pages/posts/BirdPostEditForm";
 import HomePage from "./pages/homepage/HomePage";
 import ManyBirdPostsPage from "./pages/posts/ManyBirdPostsPage";
-import EditProfile from "./pages/profile/CreateProfileForm";
-import ProfilePost from "./pages/profile/ProfilePosts";
+import EditProfile from "./pages/profile/EditProfileForm";
+import CreateProfile from "./pages/profile/EditProfileForm";
+import ProfilePostPage from "./pages/profile/ProfileIdPage";
+import AllProfiles from "./pages/profile/AllProfiles";
 
 /* Built using Code insitute walkthrough*/
 function App() { 
@@ -28,7 +30,9 @@ function App() {
                 <Route exact path="/birdpost/create" render={() => <PostCreateFrom/>} />
                 <Route exact path="/birdpost/:id" render={() => <BirdPostPage/>} />
                 <Route exact path="/birdpost/:id/edit" render={() => <BirdPostEditForm />} />
-                <Route exact path="/profiles/:id" render={() => <ProfilePost />} />
+                <Route exact path="/profiles" render={() => <AllProfiles />} />
+                <Route exact path="/profiles/id" render={() => <ProfilePostPage />} />
+                <Route exact path="/profiles/create" render={() => <CreateProfile />} />
                 <Route exact path="/profiles/:id/edit" render={() => <EditProfile />} />
                 <Route render={() => <p> Page not found! </p>} />
               </Switch>

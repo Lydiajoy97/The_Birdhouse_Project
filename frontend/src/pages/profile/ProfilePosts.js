@@ -14,11 +14,12 @@ const ProfilePage = (props)  => {
         favorite_bird,
         about_me,
         posts_count,
-        data, 
+        data,
+        owner,
     } = props; 
     
     const currentUser = useCurrentUser();
-    // const is_owner = currentUser?.username === owner;
+    const is_owner = currentUser?.username === owner;
     const history = useHistory();
 
     const handleEdit = () => {
@@ -28,7 +29,7 @@ const ProfilePage = (props)  => {
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/api/profiles/${data.id}`);
-            history.push("/");
+            history.push("/profiles");
         } catch (err) {
             console.log(err);
         }
@@ -37,13 +38,12 @@ const ProfilePage = (props)  => {
         <Card.Body>
             <Media className= "align-items-center justify-content-between">
                 <div className="d-flex align-items-center">
-                        {currentUser?.username} 
+                        {currentUser?.username} {is_owner}
                         <br/>
-                        {currentUser && (
                         <PostDropdown 
                             handleEdit={handleEdit}
                             handleDelete={handleDelete}
-                        /> )}
+                        /> 
                 </div>
             </Media>
         </Card.Body>

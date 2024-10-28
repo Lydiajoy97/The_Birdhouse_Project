@@ -47,18 +47,24 @@ const NavBar = () => {
       > Bird House  
         <i className="fa-solid fa-dove"></i>
       </NavLink>
+      
+      <NavLink
+        to="/profiles"
+        className={styles.NavLink}
+      > Profiles
+      </NavLink>
+      <NavLink
+        to="/profiles/:id/edit"
+        className={styles.NavLink}
+      > Edit {currentUser?.username}'s profile
+      </NavLink>
+      
       <NavLink
         to= "/"
         onClick={handleSignOut}
         className={styles.NavLink}
       >Fly Out  
         <i className="fas fa-sign-out-alt"></i>
-      </NavLink>
-      <NavLink
-        to="/profiles/:id"
-        className={styles.NavLink}
-      >
-        {currentUser?.username}
       </NavLink>
     </>
   );
