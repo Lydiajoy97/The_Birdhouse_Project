@@ -38,12 +38,11 @@ const ProfilePage = (props)  => {
         <Card.Body>
             <Media className= "align-items-center justify-content-between">
                 <div className="d-flex align-items-center">
-                        {currentUser?.username} {is_owner}
-                        <br/>
+                    {is_owner && (
                         <PostDropdown 
                             handleEdit={handleEdit}
                             handleDelete={handleDelete}
-                        /> 
+                        /> )}
                 </div>
             </Media>
         </Card.Body>
