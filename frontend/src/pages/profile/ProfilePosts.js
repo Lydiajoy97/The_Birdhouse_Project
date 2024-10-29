@@ -9,12 +9,11 @@ import { PostDropdown } from "../../components/PostDropdown";
 // Code Institutes moments walkthrough
 const ProfilePage = (props)  => {
     const {
-        id,
         display_name,
         favorite_bird,
         about_me,
         posts_count,
-        data,
+        id,
         owner,
     } = props; 
     
@@ -28,7 +27,7 @@ const ProfilePage = (props)  => {
 
     const handleDelete = async () => {
         try {
-            await axiosRes.delete(`/api/profiles/${data.id}`);
+            await axiosRes.delete(`/api/profiles/${id}`);
             history.push("/profiles");
         } catch (err) {
             console.log(err);
