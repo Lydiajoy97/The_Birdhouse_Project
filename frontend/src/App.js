@@ -31,7 +31,7 @@ function App() {
                 <Route exact path="/birdpost/:id" render={() => <BirdPostPage/>} />
                 <Route exact path="/birdpost/:id/edit" render={() => <BirdPostEditForm />} />
                 <Route exact path="/profiles" render={() => <AllProfiles />} />
-                <Route exact path="/profiles/id" render={() => <ProfilePostPage />} />
+                <Route exact path="/profiles/:id" render={() => <ProfilePostPage />} />
                 <Route exact path="/profiles/create" render={() => <CreateProfile />} />
                 <Route exact path="/profiles/:id/edit" render={() => <EditProfile />} />
                 <Route render={() => <p> Page not found! </p>} />
