@@ -27,7 +27,7 @@ const ProfilePage = (props)  => {
 
     const handleDelete = async () => {
         try {
-            await axiosRes.delete(`/api/profiles/${id}`);
+            await axiosRes.delete(`/profiles/${id}`);
             history.push("/profiles");
         } catch (err) {
             console.log(err);

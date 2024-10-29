@@ -17,7 +17,7 @@ function ProfilePostPage() {
     const handleMount = async () => {
       try {
         const [{ data: post }] = await Promise.all([
-          axiosReq.get(`api/profiles/${id}`),
+          axiosReq.get(`/profiles/${id}`),
         ]);
         setPost({ results: [post] });
       } catch(err) {

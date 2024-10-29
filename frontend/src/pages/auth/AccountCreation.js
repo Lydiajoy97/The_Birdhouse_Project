@@ -33,7 +33,7 @@ const AccountCreation = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/api/dj-rest-auth/registration/", signingInFormData);
+      await axios.post("/dj-rest-auth/registration/", signingInFormData);
       history.push("/signin");
     } catch (err) {
       setErrors(err.response?.data);

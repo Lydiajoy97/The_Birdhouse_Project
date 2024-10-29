@@ -19,7 +19,7 @@ function AllProfiles({filter = "" }) {
     useEffect(() => {
         const fetchProfilePage = async () => {
             try {
-                const {data} = await axiosReq.get(`/api/profiles?${filter}search=${query}`);
+                const {data} = await axiosReq.get(`/profiles?${filter}search=${query}`);
                 setPosts(data);
                 setHasLoaded(true);
             }catch (err) {
