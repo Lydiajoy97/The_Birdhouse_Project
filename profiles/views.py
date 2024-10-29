@@ -25,11 +25,11 @@ class ProfileList(generics.ListCreateAPIView):
         'display_name',
         'about_me',
         'favorite_bird',
-        'profile.id',
+        'profile_id',
     ]
     search_fields = [
         'display_name',
-        'profile.id',
+        'profile_id',
     ]
     # https://www.youtube.com/watch?v=c-QsfbznSXI
     def perform_create(self, serializer):
