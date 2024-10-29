@@ -33,8 +33,7 @@ const NavBar = () => {
       to="/birdpost/create"
       className={styles.NavLink}
       activeClassName={styles.Active}
-    >
-      <i className="far fa-plus-square"></i> Add Bird
+    ><i className="far fa-plus-square"></i> Add Bird
     </NavLink>
   );
 
@@ -44,27 +43,25 @@ const NavBar = () => {
         to= "/birdpost"
         className={styles.NavLink}
         activeClassName={styles.Active} 
-      > Bird House  
-        <i className="fa-solid fa-dove"></i>
+      >
+        <i className="fa-solid fa-dove"></i>  Bird House  
       </NavLink>
-      
       <NavLink
         to="/profiles"
         className={styles.NavLink}
-      > Profiles
+      ><i class="fa-solid fa-binoculars"></i>  Bird Watchers 
       </NavLink>
       <NavLink
         to="/profiles/:id/edit"
         className={styles.NavLink}
-      > Edit {currentUser?.username}'s profile
+      ><i className="far fa-plus-square"></i>  Add Profile
       </NavLink>
       
       <NavLink
         to= "/"
         onClick={handleSignOut}
         className={styles.NavLink}
-      >Fly Out  
-        <i className="fas fa-sign-out-alt"></i>
+      ><i className="fas fa-sign-out-alt"></i>  Fly Out
       </NavLink>
     </>
   );
@@ -75,26 +72,23 @@ const NavBar = () => {
         to= "/signin"
         className={styles.NavLink}
         activeClassName={styles.Active} 
-      > Fly into Account  
-        <i className="fa-solid fa-dove"></i>
+      ><i className="fa-solid fa-dove"></i>  Fly into Account  
       </NavLink>
       <NavLink 
         to= "/signup"
         className={styles.NavLink}
         activeClassName={styles.Active}
-      > Create Account  
-        <i className="fa-regular fa-id-card"></i>
+      ><i className="fa-regular fa-id-card"></i>  Create Account  
       </NavLink>
       <NavLink 
         to= "/birdpost"
         className={styles.NavLink}
         activeClassName={styles.Active}
-      > Bird house  
-        <i className="fa-solid fa-feather-pointed"></i>
+      >  
+        <i className="fa-solid fa-feather-pointed"></i>  Bird house
       </NavLink>
     </>
   );
-
   return (
     <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top">
       <Container>
@@ -116,10 +110,8 @@ const NavBar = () => {
               to= "/"
               className={styles.NavLink}
               activeClassName={styles.Active}
-            > Fly Home 
-              <i className="fas fa-home"></i>
+            ><i className="fas fa-home"></i>  Fly Home 
             </NavLink>
-
               {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>
