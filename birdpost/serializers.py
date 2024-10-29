@@ -5,8 +5,7 @@ from birdpost.models import Birdpost
 class BirdpostSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
-    profile_id = serializers.ReadOnlyField(source='owner.profile.id')
-
+    
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
             raise serializers.ValidationError('Image size larger than 2MB!')
@@ -29,4 +28,4 @@ class BirdpostSerializer(serializers.ModelSerializer):
         
     class Meta:
         model = Birdpost
-        fields = 'title', 'image', 'content', 'location', 'id', 'owner', 'updated_at', 'is_owner','profile_id', 'type_of_bird', 'approved',
+        fields = 'title', 'image', 'content', 'location', 'id', 'owner', 'updated_at', 'is_owner', 'type_of_bird', 'approved',
