@@ -23,3 +23,7 @@
   .Button:active {
     color: rgb(249, 244, 248);
   }
+
+  #image-upload {
+      visibility: hidden;
+  }
