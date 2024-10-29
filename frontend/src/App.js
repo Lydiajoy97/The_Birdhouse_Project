@@ -14,6 +14,7 @@ import EditProfile from "./pages/profile/EditProfileForm";
 import CreateProfile from "./pages/profile/EditProfileForm";
 import ProfilePostPage from "./pages/profile/ProfileIdPage";
 import AllProfiles from "./pages/profile/AllProfiles";
+import Message from "./pages/redirects/Message";
 
 /* Built using Code insitute walkthrough*/
 function App() { 
@@ -24,6 +25,7 @@ function App() {
             <Container className={styles.Main}>
               <Switch>
                 <Route exact path="/" render={() => <HomePage/>} />
+                <Route exact path="/approval" render={() => <Message />} />
                 <Route exact path="/birdpost" render={() => <ManyBirdPostsPage/>}/>
                 <Route exact path="/signup"  render={() => <AccountCreation/>} />
                 <Route exact path="/signin" render={() => <SignInForm/>} />

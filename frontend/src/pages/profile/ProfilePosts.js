@@ -28,7 +28,7 @@ const ProfilePage = (props)  => {
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/profiles/${id}`);
-            history.push("/profiles");
+            history.push("/");
         } catch (err) {
             console.log(err);
         }
@@ -43,11 +43,12 @@ const ProfilePage = (props)  => {
                             handleDelete={handleDelete}
                         /> )}
                 </div>
+                <div className="d-flex">Username: {owner}</div>
             </Media>
         </Card.Body>
         <Card.Text></Card.Text>
         <Card.Body> 
-               <h2>Name:</h2> {display_name && <Card.Title className="text-center">{display_name}</Card.Title>}
+               <h2>Display Name:</h2> {display_name && <Card.Title className="text-center">{display_name}</Card.Title>}
                <br/>
                <h2>About you: </h2> {about_me && <Card.Text>{about_me}</Card.Text>}<br/>
                <h2>Favorite bird: </h2>{favorite_bird && <Card.Text>{favorite_bird}</Card.Text>}<br/>
