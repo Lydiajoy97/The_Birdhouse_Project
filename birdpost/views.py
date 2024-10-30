@@ -9,7 +9,6 @@ from rest_framework.views import APIView
 
 # Code written from django rest framework walkthrough
 class BirdpostList(generics.ListCreateAPIView):
-
     serializer_class = BirdpostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Birdpost.objects.annotate(
@@ -43,9 +42,3 @@ class BirdpostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Birdpost.objects.annotate(
          posts_count = Count('owner__displayname', distinct=True)
             ).order_by('-updated_at')
-
-# # https://www.youtube.com/watch?v=k6ELzQgPHMM
-# class CreateBirdpostView(APIView):
-
-#     def post(self, request, format=None):
-#         pass

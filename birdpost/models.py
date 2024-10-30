@@ -16,11 +16,11 @@ class Birdpost(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='displayname')
     title = models.CharField(max_length=255)
     image = models.ImageField(
-        upload_to='images/', default='../default_profile_qdjgyp'
+        upload_to='images/', default='image-upload'
     )
     location = models.TextField(blank=True)
     content = models.TextField(blank=True)
-    type_of_bird = models.CharField(max_length=60, choices=BIRD_CHOICES, default='unknown')
+    type_of_bird = models.CharField(max_length=60, choices=BIRD_CHOICES, default='Choice-of-bird')
     updated_at = models.DateTimeField(auto_now=True)
     uploaded_by = models.CharField(max_length=255, default='name')
     approved = models.BooleanField(default=False)

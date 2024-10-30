@@ -134,7 +134,8 @@ function PostCreateFrom() {
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="Type_of_bird">
-        <BirdDropdown />
+        <BirdDropdown 
+        id='Choice_of_bird' />
       </Form.Group>
       <Button
         className={`${btnStyles.Button}`}

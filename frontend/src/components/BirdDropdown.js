@@ -11,14 +11,14 @@ function BirdDropdown() {
     { label: "unknown", value: "unknown" }
   ]
 
-  let [bird, setBird] = useState("Type of bird")
+  let [bird, setBird] = useState("Choose which bird")
 
   let handleBirdChange = (e) => {setBird(e.target.value)}
   return (
     <div className="ml-auto">
       <option>What type of bird is it?</option>
       <br />
-      <select onChange={handleBirdChange}> 
+      <select onChange={handleBirdChange} > 
         <option>{bird}</option>
         {BIRD_CHOICES.map((bird) => <option key={bird.label} value={bird.value}>{bird.label} </option>)}
       </select>
