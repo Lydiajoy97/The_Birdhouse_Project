@@ -38,3 +38,7 @@ i:hover {
     max-width: 100%;
     object-fit: contain;
 }
+/* From the moments walkthrough */
+input[type="file"] {
+    display: none;
+  }

@@ -138,9 +138,16 @@ function BirdPostEditForm() {
               <figure>
                 <Image className={appStyles.Image} src={image} rounded />
               </figure>
+              <div>
+                <Form.Label
+                  className={`${btnStyles.Button} ${btnStyles} btn`}
+                  htmlFor="image-upload"
+                >
+                  Change the image
+                </Form.Label>
+              </div>
 
-              <Form.File 
-                className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+              <Form.File
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
