@@ -9,6 +9,8 @@ import { axiosReq } from "../../api/axiosDefaults";
 import ProfilePage from "./ProfilePosts";
 
 //  Code Institutes moments walkthrough
+
+
 function AllProfiles({filter = "" }) {
     const [posts, setPosts] = useState({results:[]});
     const [hasLoaded, setHasLoaded] = useState(false);

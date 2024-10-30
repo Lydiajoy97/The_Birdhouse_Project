@@ -20,7 +20,6 @@ export const PostDropdown = ({handleEdit, handleDelete}) => {
     return (
         <Dropdown className="ml-auto" drop="left">
             <Dropdown.Toggle as={Menu} />
-    
             <Dropdown.Menu  className="text-center" propperConfig={{strategy: "fixed"}}>
                 <Dropdown.Item 
                     className={styles.DropdownItem}

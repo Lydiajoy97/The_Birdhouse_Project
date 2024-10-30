@@ -14,6 +14,8 @@ import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 // Code Insitutes Moments Walkthrough
+
+
 function BirdPostPage() {
   const { id } = useParams();
   const [post, setPost] = useState({ results: [] });

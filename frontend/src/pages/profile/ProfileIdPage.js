@@ -6,7 +6,10 @@ import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import ProfilePage from "./ProfilePosts";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 // Code Insitutes Moments Walkthrough
+
+
 function ProfilePostPage() {
   const { id } = useParams();
   const [post, setPost] = useState({ results: [] });

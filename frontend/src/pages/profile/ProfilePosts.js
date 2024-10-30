@@ -7,6 +7,8 @@ import { axiosRes } from "../../api/axiosDefaults";
 import { PostDropdown } from "../../components/PostDropdown";
 
 // Code Institutes moments walkthrough
+
+
 const ProfilePage = (props)  => {
     const {
         display_name,
@@ -57,7 +59,6 @@ const ProfilePage = (props)  => {
           </div>
         </Card.Body>
     </Card>
-}
-;
+};
 
 export default ProfilePage;

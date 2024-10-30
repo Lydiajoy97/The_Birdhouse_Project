@@ -21,7 +21,6 @@ function BirdDropdown() {
       <select onChange={handleBirdChange}> 
         <option>{bird}</option>
         {BIRD_CHOICES.map((bird) => <option key={bird.label} value={bird.value}>{bird.label} </option>)}
-        
       </select>
     </div>
   );

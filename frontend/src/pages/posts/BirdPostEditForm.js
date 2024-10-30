@@ -16,7 +16,10 @@ import btnStyles from "../../styles/Button.module.css";
 
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+
 // Code Insitutes moments walkthrough
+
+
 function BirdPostEditForm() {
   const [errors, setErrors] = useState({});
 
@@ -37,10 +40,8 @@ function BirdPostEditForm() {
       try {
         const { data } = await axiosReq.get(`/birdpost/${id}`);
         const { title, type_of_bird, content, image, is_owner } = data;
-
         is_owner ? setPostData({ title, type_of_bird, content, image }) : history.push("/");
-      } catch (err) {
-      }
+      } catch (err) {}
     };
 
     handleMount();
@@ -107,14 +108,13 @@ function BirdPostEditForm() {
           name="content"
           value={content}
           onChange={handleChange}
-      />
+        />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
-
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
@@ -159,7 +159,6 @@ function BirdPostEditForm() {
                 {message}
               </Alert>
             ))}
-
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>

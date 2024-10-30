@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import { axiosRes } from '../../api/axiosDefaults';
 
 // From moments walkthrough
+
+
 const Comment = (props) => {
     const { profile_id, owner, updated_at, content, id, setPost, setComments, } = props;
     
@@ -35,37 +37,38 @@ const Comment = (props) => {
     } catch(err){}
   };
 
-
-    return (
-        <>
-           <hr />
-            <Media>
-              <Link to={`/profiles/${profile_id}`}>
-                </Link>
-                <Media.Body className="align-self-center ml-2">
-                  <span className={styles.Owner}>{owner}</span>
-                  <span className={styles.Date}>{updated_at}</span>
-                  {showEditForm ? (
-                    <EditComments
-                      id={id}
-                      profile_id={profile_id}
-                      content={content}
-                      setComments={setComments}
-                      setShowEditForm={setShowEditForm}
-                    />
-                  ) : (
-                    <p>{content}</p>
-                  )}
-                </Media.Body>
-                {is_owner && !showEditForm && (
-                  <PostDropdown
-                    handleEdit={() => setShowEditForm(true)}
-                    handleDelete={handleDelete}
-                  />
-                )}
-              </Media>
-            </>
-    );
+  return (
+  <>
+    <hr />
+      <Media>
+        <Link to={`/profiles/${profile_id}`}>
+        </Link>
+        <Media.Body className="align-self-center ml-2">
+          <span className={styles.Owner}>{owner}</span>
+          <span className={styles.Date}>{updated_at}</span>
+            {showEditForm ? (
+              <EditComments
+                id={id}
+                profile_id={profile_id}
+                content={content}
+                setComments={setComments}
+                setShowEditForm={setShowEditForm}
+              />
+            ) : (
+              <p>{content}</p>
+            )
+          }
+        </Media.Body>
+          {is_owner && !showEditForm && (
+            <PostDropdown
+              handleEdit={() => setShowEditForm(true)}
+              handleDelete={handleDelete}
+          />
+          )
+        }
+      </Media>
+    </>
+  );
 };
 
 export default Comment;

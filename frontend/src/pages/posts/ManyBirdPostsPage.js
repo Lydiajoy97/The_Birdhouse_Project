@@ -7,7 +7,10 @@ import styles from "../../styles/PostPage.module.css";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./BirdPosts";
+
 //  Code Institutes moments walkthrough
+
+
 function ManyBirdPostsPage({filter = "approved" }) {
     const [posts, setPosts] = useState({results:[]});
     const [hasLoaded, setHasLoaded] = useState(false);
@@ -68,7 +71,6 @@ function ManyBirdPostsPage({filter = "approved" }) {
                 )}
             </Col>
         </Row>
-
     );
 }
 
