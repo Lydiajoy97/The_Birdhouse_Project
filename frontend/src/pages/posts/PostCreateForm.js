@@ -68,8 +68,8 @@ function PostCreateFrom() {
       formData.append('image', imageInput.current.files[0]);
   
       try {
-      const { data } =await axiosReq.post('/birdpost', formData);
-       history.push('/approval');
+        await axiosReq.post('/birdpost', formData);
+        history.push('/approval');
       } catch(err){ 
         if (err.response?.status !== 401) {
          setErrors(err.response?.data)

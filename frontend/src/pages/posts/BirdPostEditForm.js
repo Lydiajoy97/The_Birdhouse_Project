@@ -75,11 +75,11 @@ function BirdPostEditForm() {
       formData.append("image", imageInput.current.files[0]);
     }
     try {
-      const { data } =await axiosReq.post('/birdpost', formData);
-       history.push(`/birdpost`);
-      } catch(err){ 
-        if (err.response?.status !== 401) {
-         setErrors(err.response?.data)
+      await axiosReq.post('/birdpost', formData);
+      history.push(`/birdpost/${id}`);
+    } catch(err){ 
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
       }
     }
   };
