@@ -16,7 +16,6 @@ const Post = (props)  => {
         content, 
         location,
         image, 
-        comments_count,
     } = props; 
     
     const currentUser = useCurrentUser();
@@ -64,7 +63,6 @@ const Post = (props)  => {
           <Link to={`/birdpost/${id}`}>
             <i className="far fa-comments" />
           </Link>
-          {comments_count}
           </div>
         </Card.Body>
     </Card>
