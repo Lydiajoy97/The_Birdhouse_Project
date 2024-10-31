@@ -1,4 +1,8 @@
-## Project Name : The Birdhouse
+## Project Name : The Birdhouse Project 
+
+![Responsive](https://res.cloudinary.com/dddbuwhyg/image/upload/v1730372682/Screenshot_2024-10-31_105720_z1zdjq.png)
+
+* [**Live Depolyed site**](https://the-birdhouse-project-b719ced46037.herokuapp.com/)
 
 * [**Project Brief**](#Project-Brief)
 The Birdhouse is a platform were users can upload pictures of birds they have spotted. They can post where they have found them which helps other users to spot birds. 
@@ -54,8 +58,10 @@ This is to create an online community where people feel safe. This forum will al
 
 # Future developments 
 
-- Authenticate profiles so that the admin can montior posts. I will do this by adding a approved boolean field to the model and migrate the changes.
-- 
+- Add admin approval to profile posts so that the admin account can monitor what content has been posted. I would also like to fix the bug so that when a user edits thier profile a new one is not created. 
+
+- I also would like to add a redirect page once a user has edited their post. At the moment it gets sent for approval, and that is not communicated with the user. To do this I will redirect the user to Message.js after submission.
+
 - One future development is to have a meet up page where users can arrange a spot to meet up and book a place. There will be an interactive map feature and bookings form. This is the build on the community they have found through the bird spotting page. 
 
 - Another feature development is to add a react-bootstrap carosel on the home page. This will add to user experience and the overall look of the website. 
@@ -64,12 +70,23 @@ This is to create an online community where people feel safe. This forum will al
 
 - Another future devlopment is to add a page footer so that a user can contact The Birdhouse and find the social media pages.
 
+
 # Testing-and-Results 
-Strategy:
-Much of the testing has been done during development such as the back-end testing. My Api connects to my frontend and I am able to minipulate data. I can veiw my admin console and edit and delete posts on there. 
+
+Much of the testing has been done during development using devtools. My Api connects to my frontend and I am able to minipulate data. I can veiw my admin console and edit and delete posts on there. 
+
+One of the errors found after deployement is when a user creates a post is that the bird selection on the dropdown menu doesn't get sent to the database and the admin account therefore needs to select a bird choice. I attempted to fix this using a Choicefield instead of a Charfield, but this still showed an error. I also tried to link the birdpost id to the model default, but after doing this is failed to post anything. This error remains unfixed, and I hope to fix it in the future. 
+
+Another error is that a profile is made for the user once their account has been created, this then causes problems when editing that profile. When the user tries to edit the profile, a new one is created and they need to delete the onld one. This relies on the user to spot this & creates a poor user experience. I will add this to a future development to make sure a new profile is not created once a user makes and edit on the profile. 
+
+When a user edits a post, a new post is sent to the database for approval. Although this is fine, it just creates a poor user experience as the user doesn't know that their post has been saved and sent. As a future development I would like to add another 'edit pending' page to communicate well with the user. 
 
 Testing Results:
- You can veiw my testing results here:
+
+You can veiw my testing results here:
+
+![TestingTable1P5](https://res.cloudinary.com/dddbuwhyg/image/upload/v1730374913/Testing_Table_1_P5_gtmyk6.png)
+![TestingTable2P5](https://res.cloudinary.com/dddbuwhyg/image/upload/v1730374914/Testing_Table_2_P5_ki1ghj.png)
 
 https://docs.google.com/document/d/15OvMF0vv1gsvvdaXJHcA-6Pp0M1fpKidckkbuRtrGvM/edit
 
