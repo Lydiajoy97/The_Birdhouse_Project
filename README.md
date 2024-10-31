@@ -10,18 +10,15 @@ This is to create an online community where people feel safe. This forum will al
 
 # **TABLE OF Contents**
 
-* [**User Experience** ](#User-experience)
 * [**User Stories**](#User-Stories)
-* [**Wireframes** ](#Wireframes)
-* [**Surface-plan**](#Surface-plan)
-* [**Features** ](#Features)
-* [**Frameworks and libraries**](#Framewores-and-Liberies)
-* [ **Testing**](#Testing)
+* [**React Components**](#React-Components)
+* [**Libraries contexts and hooks**](#Libraries-contexts-and-hooks)
+* [**Wireframes** ](#Frontend-Wireframes)
+* [**Structure plan**](#Structure-Plan)
+* [ **Testing and Results**](#Testing-and-Results)
 * [ **Deployment**](#Deployment)
 * [**Credits** ](#Credits)
-* [**Acknowledgements** ](#Acknowledgements)
 
-# User-Experience 
 
 # User-Stories:
 1) As a user I want to be able to create an account and sign in to the platform so that I can add content. 
@@ -31,15 +28,45 @@ This is to create an online community where people feel safe. This forum will al
 5) As a user I want to filter posts so that I can see different types of birds. 
 6) As a user I want good user experience navagating the website.
 
-# Features 
-- Navagation between pages 
-- Create an account and profiles
-- Log in and log out buttons and functions
-- Post bird pictures and content 
-- Comment on others posts 
-- Delete own posts and comments
+# React-Components
 
-# React functionalities and components
+- As a user I want to create an account with a profile so that I can display details about myself.
+
+UI Components: AccountCreation.js, Signin.js and CreateProfile.js 
+
+- As a user I want to view other profiles and edit my own.
+
+UI Components: AllProfiles.js, ProfilePosts.js and EditProfileForm.js 
+
+- As a user I want to add posts about the birds that I have spotted and edit them.
+
+UI Components: PostCreateForm.js, BirdDropdown.js, Assests,js and BirdPostEditForm.js.
+
+- As a user I want to veiw other peoples posts and scroll through them so that I can comment on them.
+
+UI Components: BirdPosts.js, BirdPostPage.js, ManyBirdPostPage.js, CommentCreate.js, infiniteScrollComponent.
+
+- As a user I want to veiw other peoples comments and edit and delete my own. 
+
+UI components: Comments.js, EditComments.js, PostDropdown.js
+
+# Libraries-contexts-and-hooks:
+
+- react-infinite-scroll-component:
+So that the app can be more user friendly and slick. 
+
+- react-bootstrap:
+For the form pages such as creating a bird post and comments. This helps get the structure of the code in place before I customised it. 
+
+- contexts:
+CurrentUserContect exposes the user state of the entire app.
+
+- custom hooks:
+useCLickOutsideToggle to enable toggle on the navagation menu.
+useRedirect to redirect logged in or logged out users.
+
+-chatGBT
+To write some of the content on the birdpost to test my project.
 
 # Structure-Plan:
 - API structure 
@@ -70,7 +97,6 @@ This is to create an online community where people feel safe. This forum will al
 
 - Another future devlopment is to add a page footer so that a user can contact The Birdhouse and find the social media pages.
 
-
 # Testing-and-Results 
 
 Much of the testing has been done during development using devtools. My Api connects to my frontend and I am able to minipulate data. I can veiw my admin console and edit and delete posts on there. 
@@ -80,8 +106,6 @@ One of the errors found after deployement is when a user creates a post is that 
 Another error is that a profile is made for the user once their account has been created, this then causes problems when editing that profile. When the user tries to edit the profile, a new one is created and they need to delete the onld one. This relies on the user to spot this & creates a poor user experience. I will add this to a future development to make sure a new profile is not created once a user makes and edit on the profile. 
 
 When a user edits a post, a new post is sent to the database for approval. Although this is fine, it just creates a poor user experience as the user doesn't know that their post has been saved and sent. As a future development I would like to add another 'edit pending' page to communicate well with the user. 
-
-Testing Results:
 
 You can veiw my testing results here:
 
@@ -106,24 +130,16 @@ CSS Validator:
 
 ![CSS](https://res.cloudinary.com/dddbuwhyg/image/upload/v1722523353/Screenshot_2024-08-01_154207_g3ccmi.png)
 
-# Back end Deployment 
-- ElephantSQL
-I created a new instance on ElephantSQL and copied the API key into the env.py file. 
+# Deployment
 
-- Heroku
-To deploy to Heroku I logged into my accound and created a new app. In Settings I clicked deploy. I then connected this to my gitpod repository and set the config vars. I then deployed my branch and run the app. This was to deploy the backend api first, and it then was able to display the veiws. 
-To display my react app in the deployed version I need my veiw to render my index.html page.
+My app is a joint workspace. To deploy I first had to deploy my back-end api to Heroku. To deploy to heroku I needed to set up a new app on Heroku and connect to my github repo. I also needed to set up a new instance on ElephantSQL and set the config vars in both the heroku folder and env.py. I also needed to link my cloudinary account so that my media files can be stored, and then that url was also connected to my heroku account and env.py files. Once this was done I could push any local changes made to my api and see the app running.
 
-# Frontend deployment 
+To create the react app I set up a frontend folder within my project. In the frontend folder, (navigated by typing cd frontend into the terminal) I installed react using the npx create-react-app command. 
+After all the packages were installed I ran the npm start command, and opened my react app in the terminal widow alongside my api. I then contined to create my frontend files.
 
-- React:
+To depoly my react project I had to combine my front and back end files and set up a base url. first I installed whitenoise and added it to my middleware settings. I then added 'staticfiles and 'build' to my BASE_DIR path and created a static files folder at the root. I also removed the root url path and added an index template path. After this I created api routes for my urls by adding url/ before my url paths excluding admin and the index route. Lastly I copied over my static files using the comand in the supporting documentation. My base url was then added in the axios defaults file as 'api/'. I then added the build script (serve -s build) to the Profile so that my app builds in Heroku. The workspace was then combined and could be pushed and deployed in heroku. 
 
-To create the react app I set up a frontend folder within my project. In the frontend folder I installed react using the npx create-react-app command. 
-After all the packages were installed I ran the npm start command. 
-
-- deployment:
-
-Because my project was a joint workspace I could not deploy untill the end of my project. To do this I followed the steps on code insitutes supporting documentation. I chances my urls to say api/ then removed the root. I then added a base url. Then I copied over the static files using the terminal and pushed my changed. The app branch was then updated on Heroku. 
+This lastest version is a resumbit, so to continue devloping the app I removed the base url and api url paths. Once it was ready to be deployed again I deleted my static file folder and opened a new one. I then copied over my static files into that folder and added my base url and api/ to the begining of the url paths. Then I deployed on heroku. I noticed that my deployed app was still an old version, so I disabled the cache, and after doing that, my app has been deployed.
 
 # Credits 
 
